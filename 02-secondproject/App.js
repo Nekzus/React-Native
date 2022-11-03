@@ -1,4 +1,6 @@
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Text, TextInput, View } from "react-native";
+
+import { styles } from "./styles";
 
 export default function App() {
   return (
@@ -7,25 +9,21 @@ export default function App() {
         <TextInput placeholder="Input text" style={styles.input} />
         <Button title="Add" color="#9a848f" onPress={() => null} />
       </View>
+      <View style={styles.listContainer}>
+        <Text style={styles.listTitle}>Todo List</Text>
+        <View style={styles.listItemContainer}>
+          <Text style={styles.listItem}>Todo 1</Text>
+        </View>
+        <View style={styles.listItemContainer}>
+          <Text style={styles.listItem}>Todo 2</Text>
+        </View>
+        <View style={styles.listItemContainer}>
+          <Text style={styles.listItem}>Todo 3</Text>
+        </View>
+        <View style={styles.listItemContainer}>
+          <Text style={styles.listItem}>Todo 4</Text>
+        </View>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f6f4f5",
-  },
-  inputContainer: {
-    margin: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginHorizontal: 20,
-    marginVertical: 40,
-  },
-  input: {
-    width: '80%',
-    borderBottomWidth: 1,
-    borderBottomColor: "#9a848f",
-  },
-});
