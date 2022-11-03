@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   listTitle: {
+    alignSelf: "center",
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
