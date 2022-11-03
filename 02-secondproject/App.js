@@ -1,43 +1,31 @@
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
-import { StatusBar } from "expo-status-bar";
-
 export default function App() {
   return (
-    <View style={styles.screen}>
+    <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput placeholder="Item de lista" style={styles.input} />
-        <Button title="ADD" />
-      </View>
-      <View style={styles.itemContainer}>
-        <TextInput>Item 1</TextInput>
-        <TextInput>Item 2</TextInput>
-        <TextInput>Item 3</TextInput>
+        <TextInput placeholder="Input text" style={styles.input} />
+        <Button title="Add" color="#9a848f" onPress={() => null} />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    padding: 60,
+  container: {
+    flex: 1,
+    backgroundColor: "#f6f4f5",
   },
   inputContainer: {
+    margin: 20,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    marginHorizontal: 20,
+    marginVertical: 40,
   },
   input: {
-    height: 40,
-    width: 200,
-    borderBottomColor: "black",
+    width: '80%',
     borderBottomWidth: 1,
-  },
-  itemContainer: {
-    marginTop: 20,
-    height: 500,
-    borderColor: "black",
-    borderWidth: 1,
-    alignItems: "center",
+    borderBottomColor: "#9a848f",
   },
 });
