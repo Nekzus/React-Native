@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput placeholder="Input text" style={styles.input} />
+        <TextInput placeholder="Input todo" style={styles.input} />
         <Button title="Add" color="#9a848f" onPress={() => null} />
       </View>
       <View style={styles.listContainer}>
