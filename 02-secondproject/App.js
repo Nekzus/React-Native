@@ -6,7 +6,7 @@ import ModalItem from "./components/Modal";
 import { styles } from "./styles";
 import { useState } from "react";
 
-export default function App() {
+const App = () => {
   const [textItem, setTextItem] = useState("");
   const [itemList, setItemList] = useState([]);
 
@@ -26,6 +26,7 @@ export default function App() {
     setModalVisible(!modalVisible);
   };
   const addItem = () => {
+    if (textItem === "") return;
     setItemList((currentItems) => [
       ...currentItems,
       { id: Math.random().toString(), value: textItem },
@@ -51,4 +52,6 @@ export default function App() {
       </View>
     </View>
   );
-}
+};
+
+export default App;

@@ -17,7 +17,11 @@ const ModalItem = (props) => {
         <Text style={styles.modalItem}>{item.value}</Text>
       </View>
       <View style={styles.modalButton}>
-        <Button onPress={onDelete.bind(this, item.id)} title="CONFIRM" />
+        <Button
+          color="black"
+          onPress={onDelete.bind(this, item.id)}
+          title="CONFIRM"
+        />
       </View>
     </Modal>
   );

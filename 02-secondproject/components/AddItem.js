@@ -11,7 +11,7 @@ const AddItem = (props) => {
         value={value}
         style={styles.input}
       />
-      <Button title="Add" color="#9a848f" onPress={onAddItem} />
+      <Button title="Add" color="black" onPress={onAddItem} />
     </View>
   );
 };
