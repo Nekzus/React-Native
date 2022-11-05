@@ -1,12 +1,8 @@
-import {
-  Button,
-  FlatList,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Text, View } from "react-native";
 
+import AddItem from "./components/AddItem";
+import List from "./components/list";
+import ModalItem from "./components/Modal";
 import { styles } from "./styles";
 import { useState } from "react";
 
@@ -14,10 +10,21 @@ export default function App() {
   const [textItem, setTextItem] = useState("");
   const [itemList, setItemList] = useState([]);
 
+  const [itemSelected, setItemSelected] = useState({});
+  const [modalVisible, setModalVisible] = useState(false);
+
   const onHandlerChangeItem = (t) => setTextItem(t);
-
-  const onHandlerDelete = () => null;
-
+  const onHandlerDelete = (id) => {
+    setItemList((currentItems) =>
+      currentItems.filter((item) => item.id !== id)
+    );
+    setItemSelected({});
+    setModalVisible(!modalVisible);
+  };
+  const onHandlerModal = (id) => {
+    setItemSelected(itemList.filter((item) => item.id === id)[0]);
+    setModalVisible(!modalVisible);
+  };
   const addItem = () => {
     setItemList((currentItems) => [
       ...currentItems,
@@ -28,30 +35,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Input todo"
-          onChangeText={onHandlerChangeItem}
-          value={textItem}
-          style={styles.input}
-        />
-        <Button title="Add" color="#9a848f" onPress={addItem} />
-      </View>
+      <ModalItem
+        visible={modalVisible}
+        onDelete={onHandlerDelete.bind(this, itemSelected.id)}
+        item={itemSelected}
+      />
+      <AddItem
+        onChange={onHandlerChangeItem}
+        onAddItem={addItem}
+        value={textItem}
+      />
       <View style={styles.listContainer}>
         <Text style={styles.listTitle}>Todo List</Text>
-        <FlatList
-          data={itemList}
-          renderItem={(data) => (
-            <TouchableOpacity
-              onPress={onHandlerDelete.bind(this, data.item.id)}
-            >
-              <View style={styles.listItemContainer}>
-                <Text style={styles.listItem}>{data.item.value}</Text>
-              </View>
-            </TouchableOpacity>
-          )}
-          keyExtractor={(item) => item.id}
-        />
+        <List item={itemList} onModal={onHandlerModal} />
       </View>
     </View>
   );
