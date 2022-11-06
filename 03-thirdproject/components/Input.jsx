@@ -1,18 +1,7 @@
 import { StyleSheet, TextInput } from "react-native";
 
 const Input = ({ value, onText, ...props }) => {
-  return (
-    <TextInput
-      style={{ ...styles.input, ...props.style }}
-      blurOnSubmit
-      autoCapitalize="none"
-      autoCorrect={false}
-      keyboardType="numeric"
-      maxLength={2}
-      value={value}
-      onChangeText={onText}
-    />
-  );
+  return <TextInput style={{ ...styles.input, ...props.style }} {...props} />;
 };
 
 const styles = StyleSheet.create({
