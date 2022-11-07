@@ -10,6 +10,8 @@ const NumberContainer = (props) => {
   );
 };
 
+export default NumberContainer;
+
 const styles = StyleSheet.create({
   container: {
     borderWidth: 2,
@@ -25,5 +27,3 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
 });
-
-export default NumberContainer;

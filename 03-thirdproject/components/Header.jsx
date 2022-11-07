@@ -2,13 +2,15 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Colors from "../constants/colors";
 
-export const Header = ({ title }) => {
+const Header = ({ title }) => {
   return (
     <View style={styles.header}>
       <Text style={styles.headerTitle}>{title}</Text>
     </View>
   );
 };
+
+export default Header;
 
 const styles = StyleSheet.create({
   header: {

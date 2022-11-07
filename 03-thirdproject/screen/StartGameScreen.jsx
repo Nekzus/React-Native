@@ -13,7 +13,7 @@ import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
 import { useState } from "react";
 
-const StartGameScreen = () => {
+const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState("");
@@ -24,7 +24,6 @@ const StartGameScreen = () => {
   const handlerResetInput = () => {
     setEnteredValue("");
     setConfirmed(false);
-    console.log("reset");
   };
 
   const handlerConfirmInput = () => {
@@ -33,7 +32,6 @@ const StartGameScreen = () => {
     setConfirmed(true);
     setSelectedNumber(choseNumber);
     setEnteredValue("");
-    console.log("confirm");
   };
 
   let confirmedOutput;
@@ -42,12 +40,13 @@ const StartGameScreen = () => {
       <Card style={styles.summaryContainer}>
         <Text>Tu selección</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title="EMPEZAR JUEGO" />
+        <Button
+          title="EMPEZAR JUEGO"
+          onPress={() => props.onStartGame(selectedNumber)}
+        />
       </Card>
     );
   }
-
-  console.log(confirmedOutput);
 
   return (
     <TouchableWithoutFeedback
@@ -91,6 +90,8 @@ const StartGameScreen = () => {
   );
 };
 
+export default StartGameScreen;
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -100,6 +101,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 10,
+    fontFamily: "open-sans-bold",
   },
   inputContainer: {
     width: 300,
@@ -121,5 +123,3 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-
-export default StartGameScreen;

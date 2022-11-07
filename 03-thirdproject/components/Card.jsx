@@ -6,6 +6,8 @@ const Card = (props) => {
   );
 };
 
+export default Card;
+
 const styles = StyleSheet.create({
   card: {
     shadowColor: "black",
@@ -17,5 +19,3 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 });
-
-export default Card;
