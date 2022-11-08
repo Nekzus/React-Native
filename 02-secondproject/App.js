@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 
 import AddItem from "./components/AddItem";
-import List from "./components/list";
+import List from "./components/list/List";
 import ModalItem from "./components/Modal";
 import { styles } from "./styles";
 import { useState } from "react";
@@ -13,7 +13,7 @@ const App = () => {
   const [itemSelected, setItemSelected] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
 
-  const onHandlerChangeItem = (t) => setTextItem(t);
+  const onHandlerChangeItem = (text) => setTextItem(text);
   const onHandlerDelete = (id) => {
     setItemList((currentItems) =>
       currentItems.filter((item) => item.id !== id)
@@ -21,6 +21,12 @@ const App = () => {
     setItemSelected({});
     setModalVisible(!modalVisible);
   };
+
+  const onHandlerCancel = () => {
+    setItemSelected({});
+    setModalVisible(!modalVisible);
+  };
+
   const onHandlerModal = (id) => {
     setItemSelected(itemList.filter((item) => item.id === id)[0]);
     setModalVisible(!modalVisible);
@@ -39,6 +45,7 @@ const App = () => {
       <ModalItem
         visible={modalVisible}
         onDelete={onHandlerDelete.bind(this, itemSelected.id)}
+        onCancel={onHandlerCancel}
         item={itemSelected}
       />
       <AddItem

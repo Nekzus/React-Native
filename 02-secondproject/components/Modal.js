@@ -1,37 +1,45 @@
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
 
 const ModalItem = (props) => {
-  const { visible, onDelete, item } = props;
+  const { visible, onCancel, onDelete, item } = props;
 
   if (!visible) return null;
 
   return (
     <Modal animationType="slide" visible={visible}>
-      <View style={styles.modalTitle}>
-        <Text>Mi Modal</Text>
+      <View style={styles.modalContainer}>
+        <Text style={styles.modalTitle}>Task Details</Text>
       </View>
       <View style={styles.modalMessage}>
-        <Text>¿Está seguro que desea borrar?</Text>
+        <Text style={styles.modalDetailText}>
+          ¿Está seguro que desea borrar?
+        </Text>
       </View>
       <View style={styles.modalMessage}>
         <Text style={styles.modalItem}>{item.value}</Text>
       </View>
       <View style={styles.modalButton}>
         <Button
-          color="black"
+          color="red"
           onPress={onDelete.bind(this, item.id)}
-          title="CONFIRM"
+          title="DELETE"
         />
+        <Button color="black" onPress={onCancel} title="CANCEL" />
       </View>
     </Modal>
   );
 };
 
 const styles = StyleSheet.create({
-  modalTitle: {
-    backgroundColor: "#ccc",
+  modalContainer: {
+    marginVertical: 20,
+    alignItems: "center",
     color: "white",
+  },
+  modalTitle: {
     fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 10,
   },
   modalMessage: {
     marginTop: 10,
@@ -39,7 +47,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  modalDetailText: {
+    fontSize: 14,
+    color: "#212121",
+  },
   modalButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
     marginTop: 15,
   },
   modalItem: {

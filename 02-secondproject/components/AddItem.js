@@ -11,7 +11,7 @@ const AddItem = (props) => {
         value={value}
         style={styles.input}
       />
-      <Button title="Add" color="black" onPress={onAddItem} />
+      <Button disabled={!value} title="Add" color="black" onPress={onAddItem} />
     </View>
   );
 };

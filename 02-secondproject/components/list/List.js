@@ -3,10 +3,11 @@ import ItemList from "./ListItem";
 
 const List = (props) => {
   const { item, onModal } = props;
+  const renderItem = (data) => <ItemList data={data} onModal={onModal} />;
   return (
     <FlatList
       data={item}
-      renderItem={(data) => <ItemList data={data} onModal={onModal} />}
+      renderItem={renderItem}
       keyExtractor={(item) => item.id}
     />
   );
