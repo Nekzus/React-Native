@@ -12,7 +12,7 @@ const ModalItem = (props) => {
       </View>
       <View style={styles.modalMessage}>
         <Text style={styles.modalDetailText}>
-          ¿Está seguro que desea borrar?
+          ¿Are you sure you want to delete?
         </Text>
       </View>
       <View style={styles.modalMessage}>

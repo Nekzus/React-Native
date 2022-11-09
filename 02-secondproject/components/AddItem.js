@@ -6,7 +6,7 @@ const AddItem = (props) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
-        placeholder="Input todo"
+        placeholder="Input task"
         onChangeText={onChange}
         value={value}
         style={styles.input}

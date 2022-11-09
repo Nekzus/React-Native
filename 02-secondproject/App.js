@@ -32,7 +32,6 @@ const App = () => {
     setModalVisible(!modalVisible);
   };
   const addItem = () => {
-    if (textItem === "") return;
     setItemList((currentItems) => [
       ...currentItems,
       { id: Math.random().toString(), value: textItem },
@@ -54,7 +53,7 @@ const App = () => {
         value={textItem}
       />
       <View style={styles.listContainer}>
-        <Text style={styles.listTitle}>Todo List</Text>
+        <Text style={styles.listTitle}>Task List</Text>
         <List item={itemList} onModal={onHandlerModal} />
       </View>
     </View>
