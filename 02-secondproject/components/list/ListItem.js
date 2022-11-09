@@ -14,7 +14,7 @@ const ItemList = (props) => {
 const styles = StyleSheet.create({
   listItemContainer: {
     paddingVertical: 20,
-    backgroundColor: "black",
+    backgroundColor: "#A855F7",
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   listItem: {
     fontSize: 14,
-    color: "#ffffff",
+    color: "white",
     paddingHorizontal: 10,
   },
 });

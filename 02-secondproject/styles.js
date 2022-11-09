@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f6f4f5",
+    backgroundColor: "#161C23",
   },
   listContainer: {
     marginHorizontal: 20,
@@ -13,6 +13,6 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
-    color: "#212121",
+    color: "#22C55E",
   },
 });

@@ -6,25 +6,25 @@ const ModalItem = (props) => {
   if (!visible) return null;
 
   return (
-    <Modal animationType="slide" visible={visible}>
+    <Modal animationType="slide" visible={visible} transparent={true}>
       <View style={styles.modalContainer}>
-        <Text style={styles.modalTitle}>Task Details</Text>
-      </View>
-      <View style={styles.modalMessage}>
-        <Text style={styles.modalDetailText}>
-          ¿Are you sure you want to delete?
-        </Text>
-      </View>
-      <View style={styles.modalMessage}>
-        <Text style={styles.modalItem}>{item.value}</Text>
-      </View>
-      <View style={styles.modalButton}>
-        <Button
-          color="red"
-          onPress={onDelete.bind(this, item.id)}
-          title="DELETE"
-        />
-        <Button color="black" onPress={onCancel} title="CANCEL" />
+        <View style={styles.modalMessage}>
+          <Text style={styles.modalTitle}>Task Details</Text>
+          <Text style={styles.modalDetailText}>
+            ¿Are you sure you want to delete?
+          </Text>
+        </View>
+        <View style={styles.modalMessage}>
+          <Text style={styles.modalItem}>{item.value}</Text>
+        </View>
+        <View style={styles.modalButton}>
+          <Button
+            color="#EF4444"
+            onPress={onDelete.bind(this, item.id)}
+            title="DELETE"
+          />
+          <Button color="#25E35F" onPress={onCancel} title="CANCEL" />
+        </View>
       </View>
     </Modal>
   );
@@ -32,14 +32,16 @@ const ModalItem = (props) => {
 
 const styles = StyleSheet.create({
   modalContainer: {
+    backgroundColor: "#4E4B5A",
     marginVertical: 20,
-    alignItems: "center",
-    color: "white",
+    padding: 10,
+    borderRadius: 5,
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
+    color: "#fff",
   },
   modalMessage: {
     marginTop: 10,
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
   },
   modalDetailText: {
     fontSize: 14,
-    color: "#212121",
+    color: "#fff",
   },
   modalButton: {
     flexDirection: "row",
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
   },
   modalItem: {
     fontSize: 30,
+    color: "#fff",
   },
 });
 

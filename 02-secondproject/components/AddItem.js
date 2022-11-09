@@ -10,8 +10,14 @@ const AddItem = (props) => {
         onChangeText={onChange}
         value={value}
         style={styles.input}
+        placeholderTextColor="white"
       />
-      <Button disabled={!value} title="Add" color="black" onPress={onAddItem} />
+      <Button
+        disabled={!value}
+        title="Add"
+        color="#22C55E"
+        onPress={onAddItem}
+      />
     </View>
   );
 };
@@ -25,6 +31,7 @@ const styles = StyleSheet.create({
     marginVertical: 40,
   },
   input: {
+    color: "#fff",
     width: "80%",
     borderBottomWidth: 1,
     borderBottomColor: "#9a848f",
