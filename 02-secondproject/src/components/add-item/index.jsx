@@ -1,5 +1,7 @@
 import { Button, StyleSheet, TextInput, View } from "react-native";
 
+import React from "react";
+
 const AddItem = (props) => {
   const { onChange, onAddItem, value } = props;
 
@@ -10,7 +12,8 @@ const AddItem = (props) => {
         onChangeText={onChange}
         value={value}
         style={styles.input}
-        placeholderTextColor="white"
+        placeholderTextColor="darkgrey"
+        cursorColor={"#A855F7"}
       />
       <Button
         disabled={!value}
@@ -21,6 +24,8 @@ const AddItem = (props) => {
     </View>
   );
 };
+
+export default AddItem;
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -37,5 +42,3 @@ const styles = StyleSheet.create({
     borderBottomColor: "#9a848f",
   },
 });
-
-export default AddItem;

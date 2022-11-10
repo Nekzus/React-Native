@@ -1,10 +1,8 @@
+import { AddItem, List, ModalItem } from "./components";
+import React, { useState } from "react";
 import { Text, View } from "react-native";
 
-import AddItem from "./components/AddItem";
-import List from "./components/list/List";
-import ModalItem from "./components/Modal";
 import { styles } from "./styles";
-import { useState } from "react";
 
 const App = () => {
   const [textItem, setTextItem] = useState("");

@@ -1,5 +1,6 @@
 import { FlatList } from "react-native";
-import ItemList from "./ListItem";
+import ItemList from "../item/index";
+import React from "react";
 
 const List = (props) => {
   const { item, onModal } = props;

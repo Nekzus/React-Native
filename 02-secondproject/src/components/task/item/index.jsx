@@ -1,5 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+import React from "react";
+
 const ItemList = (props) => {
   const { data, onModal } = props;
   return (
@@ -10,6 +12,8 @@ const ItemList = (props) => {
     </TouchableOpacity>
   );
 };
+
+export default ItemList;
 
 const styles = StyleSheet.create({
   listItemContainer: {
@@ -32,5 +36,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
 });
-
-export default ItemList;

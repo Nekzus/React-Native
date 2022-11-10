@@ -1,5 +1,7 @@
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
 
+import React from "react";
+
 const ModalItem = (props) => {
   const { visible, onCancel, onDelete, item } = props;
 
@@ -30,12 +32,15 @@ const ModalItem = (props) => {
   );
 };
 
+export default ModalItem;
+
 const styles = StyleSheet.create({
   modalContainer: {
     backgroundColor: "#4E4B5A",
     marginVertical: 20,
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 10,
+    width: "80%",
   },
   modalTitle: {
     fontSize: 18,
@@ -64,5 +69,3 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
 });
-
-export default ModalItem;
