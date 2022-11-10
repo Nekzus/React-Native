@@ -1,8 +1,6 @@
 import { Button, StyleSheet, Text, View } from "react-native";
+import { Card, NumberContainer } from "../../components";
 import React, { useState } from "react";
-
-import Card from "../components/Card";
-import NumberContainer from "../components/NumberContainer";
 
 const GameScreen = (props) => {
   const generateRandomBetween = (min, max, exclude) => {

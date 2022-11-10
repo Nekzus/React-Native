@@ -1,17 +1,16 @@
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
+import { GameScreen, StartGameScreen } from "./screens";
+import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { useCallback, useEffect, useState } from "react";
 
-import GameScreen from "./screen/GameScreen";
-import Header from "./components/Header";
-import StartGameScreen from "./screen/StartGameScreen";
+import { Header } from "./components";
 
 const fetchFonts = async () => {
   await Font.loadAsync({
-    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    "open-sans": require("../assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("../assets/fonts/OpenSans-Bold.ttf"),
   });
 };
 

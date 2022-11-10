@@ -6,12 +6,10 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import { Card, Input, NumberContainer } from "../../components";
+import React, { useState } from "react";
 
-import Card from "../components/Card";
-import Colors from "../constants/colors";
-import Input from "../components/Input";
-import NumberContainer from "../components/NumberContainer";
-import { useState } from "react";
+import Colors from "../../constants/colors";
 
 const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
