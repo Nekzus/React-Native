@@ -5,6 +5,7 @@ import { GameScreen, StartGameScreen } from "./screens";
 import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 
+import Colors from "./constants/colors";
 import { Header } from "./components";
 
 const fetchFonts = async () => {
@@ -53,5 +54,6 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.backgroundPrimary,
   },
 });

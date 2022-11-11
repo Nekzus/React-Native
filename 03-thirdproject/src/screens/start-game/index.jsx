@@ -36,11 +36,12 @@ const StartGameScreen = (props) => {
   if (confirmed) {
     confirmedOutput = (
       <Card style={styles.summaryContainer}>
-        <Text>Tu selección</Text>
+        <Text style={{ color: "white" }}>Tu selección</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
         <Button
           title="EMPEZAR JUEGO"
           onPress={() => props.onStartGame(selectedNumber)}
+          color={Colors.primary}
         />
       </Card>
     );
@@ -55,7 +56,7 @@ const StartGameScreen = (props) => {
       <View style={styles.screen}>
         <Text style={styles.title}>Comenzar Juego</Text>
         <Card style={styles.inputContainer}>
-          <Text>Elija un número</Text>
+          <Text style={styles.textInput}>Elija un número</Text>
           <Input
             value={enteredValue}
             onChangeText={handlerInputNumber}
@@ -64,6 +65,7 @@ const StartGameScreen = (props) => {
             autoCorrect={false}
             keyboardType="numeric"
             maxLength={2}
+            color={Colors.text}
           />
           <View style={styles.buttonContainer}>
             <View style={styles.button}>
@@ -100,12 +102,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginVertical: 10,
     fontFamily: "open-sans-bold",
+    color: Colors.text,
   },
   inputContainer: {
     width: 300,
     maxWidth: "80%",
     padding: 20,
     alignItems: "center",
+    backgroundColor: "#4E4B5A",
+  },
+  textInput: {
+    color: Colors.text,
   },
   buttonContainer: {
     flexDirection: "row",
@@ -117,6 +124,7 @@ const styles = StyleSheet.create({
     width: 100,
   },
   summaryContainer: {
+    backgroundColor: Colors.backgroundSecondary,
     marginVertical: 20,
     alignItems: "center",
   },
