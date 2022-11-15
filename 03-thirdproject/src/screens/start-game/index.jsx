@@ -58,6 +58,8 @@ const StartGameScreen = (props) => {
         <Card style={styles.inputContainer}>
           <Text style={styles.textInput}>Elija un número</Text>
           <Input
+            placeholder={"00"}
+            placeholderTextColor={"gray"}
             value={enteredValue}
             onChangeText={handlerInputNumber}
             blurOnSubmit
