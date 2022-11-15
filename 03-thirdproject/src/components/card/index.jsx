@@ -12,7 +12,7 @@ export default Card;
 
 const styles = StyleSheet.create({
   card: {
-    shadowColor: "black",
+    shadowColor: "white",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.26,
