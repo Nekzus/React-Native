@@ -64,6 +64,7 @@ const StartGameScreen = (props) => {
         <Card style={styles.inputContainer}>
           <Text style={styles.textInput}>Elija un número</Text>
           <Input
+            style={styles.input}
             placeholder={"00"}
             placeholderTextColor={"gray"}
             value={enteredValue}
@@ -118,10 +119,16 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: "space-around",
     alignItems: "center",
-    backgroundColor: "#4E4B5A",
+    backgroundColor: Colors.backgroundSecondary,
   },
   textInput: {
     color: Colors.text,
+  },
+  input: {
+    minWidth: 70,
+    fontSize: 22,
+    paddingVertical: 10,
+    textAlign: "center",
   },
   buttonContainer: {
     flexDirection: "row",
