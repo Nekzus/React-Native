@@ -1,4 +1,5 @@
 import {
+  Alert,
   Button,
   Keyboard,
   StyleSheet,
@@ -25,19 +26,24 @@ const StartGameScreen = (props) => {
   };
 
   const handlerConfirmInput = () => {
-    const choseNumber = parseInt(enteredValue);
-    if (isNaN(choseNumber) || choseNumber <= 0 || choseNumber > 99) return;
-    setConfirmed(true);
-    setSelectedNumber(choseNumber);
-    setEnteredValue("");
+    const chosenNumber = parseInt(enteredValue, 10);
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+      Alert.alert("Numero Inválido", "El número debe estar entre 1 y 99", [
+        { text: "Entendido", style: "destructive", onPress: handlerResetInput },
+      ]);
+    } else {
+      setConfirmed(true);
+      setSelectedNumber(chosenNumber);
+      setEnteredValue("");
+    }
   };
 
   let confirmedOutput;
   if (confirmed) {
     confirmedOutput = (
       <Card style={styles.summaryContainer}>
-        <Text style={{ color: "white" }}>Tu selección</Text>
-        <NumberContainer>{selectedNumber}</NumberContainer>
+        <Text style={{ fontsize: 25, color: "white" }}>Tu selección</Text>
+        <NumberContainer number={selectedNumber} />
         <Button
           title="EMPEZAR JUEGO"
           onPress={() => props.onStartGame(selectedNumber)}
@@ -103,13 +109,14 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 10,
-    fontFamily: "open-sans-bold",
+    fontFamily: "Lato-Bold",
     color: Colors.text,
   },
   inputContainer: {
-    width: 300,
-    maxWidth: "90%",
-    padding: 20,
+    width: "70%",
+    height: 180,
+    padding: 10,
+    justifyContent: "space-around",
     alignItems: "center",
     backgroundColor: "#4E4B5A",
   },
@@ -126,8 +133,12 @@ const styles = StyleSheet.create({
     width: 100,
   },
   summaryContainer: {
+    width: "70%",
+    height: 180,
+    padding: 10,
+    justifyContent: "space-around",
     backgroundColor: Colors.backgroundSecondary,
-    marginVertical: 20,
     alignItems: "center",
+    marginVertical: 20,
   },
 });

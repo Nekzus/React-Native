@@ -25,5 +25,6 @@ const styles = StyleSheet.create({
   headerTitle: {
     color: Colors.text,
     fontSize: 22,
+    fontFamily: "Lato-Bold",
   },
 });

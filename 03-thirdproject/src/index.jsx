@@ -1,49 +1,38 @@
-import * as Font from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { GameScreen, StartGameScreen } from "./screens";
-import React, { useCallback, useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useState } from "react";
 
 import Colors from "./constants/colors";
 import { Header } from "./components";
-
-const fetchFonts = async () => {
-  await Font.loadAsync({
-    "open-sans": require("../assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("../assets/fonts/OpenSans-Bold.ttf"),
-  });
-};
+import { useFonts } from "expo-font";
 
 const App = () => {
   const [userNumber, setUserNumber] = useState();
-  const [dataLoaded, setDataLoaded] = useState(false);
 
-  useEffect(() => {
-    const prepare = async () => {
-      await SplashScreen.preventAutoHideAsync();
-      await fetchFonts();
-      setDataLoaded(true);
-    };
-    prepare();
-  }, []);
+  const [loaded] = useFonts({
+    "Lato-Regular": require("../assets/fonts/Lato-Regular.ttf"),
+    "Lato-Bold": require("../assets/fonts/Lato-Bold.ttf"),
+    "Lato-Italic": require("../assets/fonts/Lato-Italic.ttf"),
+  });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (dataLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [dataLoaded]);
-
-  if (!dataLoaded) return null;
   const handlerStartGame = (selectedNumber) => {
     setUserNumber(selectedNumber);
   };
+
   let content = <StartGameScreen onStartGame={handlerStartGame} />;
   if (userNumber) content = <GameScreen />;
 
+  if (!loaded) {
+    return (
+      <View style={styles.containerLoader}>
+        <ActivityIndicator size="large" color={Colors.primary} />
+      </View>
+    );
+  }
+
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Header title={"Adivina el Número"} />
+    <View style={styles.container}>
+      <Header title={userNumber ? "A Jugar !" : "Adivina el Número"} />
       {content}
     </View>
   );
@@ -54,6 +43,12 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.backgroundPrimary,
+  },
+  containerLoader: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: Colors.backgroundPrimary,
   },
 });
