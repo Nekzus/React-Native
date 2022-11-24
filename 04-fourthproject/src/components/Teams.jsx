@@ -4,13 +4,14 @@ import React from 'react';
 
 const Teams = ({ group, teams }) => {
   const renderItem = (team) => {
-    const { name } = team;
+    const { name, group_points } = team;
     return (
       <Text key={name.toString()} style={styles.conText}>
-        {name}
+        {name} ({group_points})
       </Text>
     );
   };
+
   return (
     <View style={styles.table}>
       <View style={styles.header}>

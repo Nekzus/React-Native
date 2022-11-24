@@ -15,8 +15,7 @@ const Categories = ({ navigation }) => {
     setGroups(resp.data.groups);
   };
 
-  const renderItem = (group) => {
-    const { letter, teams } = group;
+  const renderItem = ({ letter, teams }) => {
     return <Teams key={letter.toString()} group={letter} teams={teams} />;
   };
 
