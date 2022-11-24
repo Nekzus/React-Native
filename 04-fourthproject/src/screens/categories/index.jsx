@@ -16,7 +16,7 @@ const Categories = ({ navigation }) => {
   };
 
   const renderItem = ({ letter, teams }) => {
-    return <Teams key={letter.toString()} group={letter} teams={teams} />;
+    return <Teams key={letter.toString()} letter={letter} teams={teams} />;
   };
 
   return (
@@ -47,7 +47,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonContainer: {
-    marginVertical: 40,
+    flex: 1,
+    // marginVertical: 20,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   title: {

@@ -2,9 +2,8 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
 
-const Teams = ({ group, teams }) => {
-  const renderItem = (team) => {
-    const { name, group_points } = team;
+const Teams = ({ letter, teams }) => {
+  const renderItem = ({ name, group_points }) => {
     return (
       <Text key={name.toString()} style={styles.conText}>
         {name} ({group_points})
@@ -15,7 +14,7 @@ const Teams = ({ group, teams }) => {
   return (
     <View style={styles.table}>
       <View style={styles.header}>
-        <Text style={styles.title}>Grupo {group}</Text>
+        <Text style={styles.title}>Grupo {letter}</Text>
       </View>
       <View style={styles.content}>{teams.map(renderItem)}</View>
     </View>
