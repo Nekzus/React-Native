@@ -1,5 +1,5 @@
-import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 import Matches from '../../components/Matches';
 import Moment from 'moment';
