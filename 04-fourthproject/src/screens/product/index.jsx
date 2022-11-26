@@ -25,11 +25,7 @@ const Product = ({ navigation }) => {
           <Matches matches={matches} title={'Historial de Partidos'} />
         </View>
         <View style={styles.buttonContainer}>
-          <Button
-            title="Go to Home"
-            color="black"
-            onPress={() => navigation.navigate('Categories')}
-          />
+          <Button title="Go to Home" onPress={() => navigation.navigate('Categories')} />
         </View>
       </View>
     </ScrollView>
@@ -42,17 +38,16 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'gray',
+    // backgroundColor: 'gray',
   },
   container: {
     alignItems: 'center',
     padding: 10,
   },
   buttonContainer: {
-    flex: 5,
-    marginTop: 20,
+    height: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
   },
 });

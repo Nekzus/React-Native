@@ -31,7 +31,7 @@ const Matches = ({ matches, title }) => {
     <FlatList
       style={styles.flatList}
       ListHeaderComponent={() => <Text style={styles.textList}>{title}</Text>}
-      ListHeaderComponentStyle={{ alignItems: 'center', padding: 10, backgroundColor: 'pink' }}
+      ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
       data={matches}
       keyExtractor={(item, index) => index.toString()}
       listKey={(item, index) => index.toString()}
@@ -45,7 +45,7 @@ export default Matches;
 const styles = StyleSheet.create({
   flatList: {
     width: '100%',
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
   },
   matchTable: {
     flexDirection: 'row',

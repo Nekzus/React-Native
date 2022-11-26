@@ -25,18 +25,14 @@ const Products = ({ navigation }) => {
   };
 
   return (
-    <ScrollView keyboardShouldPersistTaps="handled">
+    <ScrollView>
       <View style={styles.screen}>
         <View style={styles.container}>
           <Matches matches={matchesTd} title={'Partidos de Hoy'} />
           <Matches matches={matchesTm} title={'Partidos de Mañana'} />
         </View>
         <View style={styles.buttonContainer}>
-          <Button
-            title="Go to Product"
-            color="black"
-            onPress={() => navigation.navigate('Product')}
-          />
+          <Button title="Go to Product" onPress={() => navigation.navigate('Product')} />
         </View>
       </View>
     </ScrollView>
@@ -49,7 +45,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'gray',
+    // backgroundColor: 'gray',
   },
   container: {
     flex: 8,
@@ -61,6 +57,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
   },
 });

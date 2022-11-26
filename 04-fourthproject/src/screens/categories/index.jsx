@@ -21,11 +21,7 @@ const Categories = ({ navigation }) => {
         <Teams groups={groups} />
       </View>
       <View style={styles.buttonContainer}>
-        <Button
-          title="Go to Products"
-          color="black"
-          onPress={() => navigation.navigate('Products')}
-        />
+        <Button title="Go to Products" onPress={() => navigation.navigate('Products')} />
       </View>
     </View>
   );
@@ -37,12 +33,12 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'gray',
+    // backgroundColor: 'gray',
   },
   container: {
     flex: 7,
     alignItems: 'center',
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
   },
   buttonContainer: {
     flex: 1,

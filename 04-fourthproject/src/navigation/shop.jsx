@@ -9,8 +9,9 @@ const ShopNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
+        headerMode: 'screen',
         headerStyle: {
-          backgroundColor: 'gray',
+          // backgroundColor: 'gray',
         },
       }}
       initialRouteName="Categories">

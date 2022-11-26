@@ -47,9 +47,8 @@ const Teams = ({ groups }) => {
       key={landscape ? 'h' : 'v'}
       style={styles.flatList}
       ListHeaderComponent={() => <Text style={styles.textList}>Grupos y Posiciones</Text>}
-      ListHeaderComponentStyle={{ alignItems: 'center', padding: 10, backgroundColor: 'pink' }}
-      contentContainerStyle={{ alignItems: 'center', backgroundColor: 'violet' }}
-      columnWrapperStyle={{ backgroundColor: 'green' }}
+      ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
+      contentContainerStyle={{ alignItems: 'center' }}
       data={groups}
       keyExtractor={(item, index) => index.toString()}
       listKey={(item, index) => index.toString()}
@@ -66,7 +65,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignContent: 'center',
-    backgroundColor: 'white',
   },
   table: {
     width: 200,
@@ -85,12 +83,12 @@ const styles = StyleSheet.create({
   },
   flatList: {
     width: '100%',
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
   },
   header: {
     flex: 2,
     justifyContent: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'gray',
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
   },
