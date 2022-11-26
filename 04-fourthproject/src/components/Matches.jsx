@@ -1,6 +1,7 @@
 import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
+import { countriesValidate } from '../helpers/countries';
 import moment from 'moment/moment';
 import { useTheme } from '@react-navigation/native';
 
@@ -8,10 +9,12 @@ const Matches = ({ matches, title }) => {
   const { colors } = useTheme();
   const renderItem = ({ item }) => {
     const { home_team: home, away_team: away, datetime } = item;
+    const nameH = countriesValidate(home.country);
+    const nameA = countriesValidate(away.country);
     return (
       <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
         <View style={styles.containerName}>
-          <Text style={{ ...styles.textName, color: colors.text }}>{home.name}</Text>
+          <Text style={{ ...styles.textName, color: colors.text }}>{nameH}</Text>
         </View>
         <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
           <Text style={{ ...styles.textGoals, color: colors.text }}>{home.goals}</Text>
@@ -20,7 +23,7 @@ const Matches = ({ matches, title }) => {
           <Text style={{ ...styles.textGoals, color: colors.text }}>{away.goals}</Text>
         </View>
         <View style={styles.containerName}>
-          <Text style={{ ...styles.textName, color: colors.text }}>{away.name}</Text>
+          <Text style={{ ...styles.textName, color: colors.text }}>{nameA}</Text>
         </View>
         <View style={{ ...styles.containerDate, backgroundColor: colors.card }}>
           <Text style={{ ...styles.textDate, color: colors.text }}>

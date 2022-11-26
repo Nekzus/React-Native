@@ -1,6 +1,7 @@
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
+import { countriesValidate } from '../helpers/countries';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 
@@ -9,13 +10,14 @@ const Teams = ({ groups }) => {
   const { landscape } = useDeviceOrientation();
   const numColumns = landscape ? 4 : 2;
   const renderItemT = ({ item }) => {
+    const name = countriesValidate(item.country);
     return (
       // <Text style={{ ...styles.conText, color: colors.text }}>
       //   {item.name} ({item.group_points})
       // </Text>
       <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
         <View style={styles.containerName}>
-          <Text style={{ ...styles.textName, color: colors.text }}>{item.name}</Text>
+          <Text style={{ ...styles.textName, color: colors.text }}>{name}</Text>
         </View>
         <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
           <Text style={{ ...styles.textGoals, color: colors.text }}>{item.group_points}</Text>
@@ -79,8 +81,8 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   card: {
-    width: 180,
-    height: 180,
+    width: 210,
+    height: 200,
     borderRadius: 20,
     margin: 10,
     shadowColor: '#000',
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    height: 30,
+    height: 35,
     borderWidth: 2,
     borderRadius: 15,
     marginVertical: 2,
