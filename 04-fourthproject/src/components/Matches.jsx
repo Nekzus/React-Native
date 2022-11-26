@@ -2,26 +2,30 @@ import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
 import moment from 'moment/moment';
+import { useTheme } from '@react-navigation/native';
 
 const Matches = ({ matches, title }) => {
+  const { colors } = useTheme();
   const renderItem = ({ item }) => {
     const { home_team: home, away_team: away, datetime } = item;
     return (
-      <View style={styles.matchTable}>
+      <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
         <View style={styles.containerName}>
-          <Text style={styles.textName}>{home.name}</Text>
+          <Text style={{ ...styles.textName, color: colors.text }}>{home.name}</Text>
         </View>
-        <View style={styles.containerGoals}>
-          <Text style={styles.textGoals}>{home.goals}</Text>
+        <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
+          <Text style={{ ...styles.textGoals, color: colors.text }}>{home.goals}</Text>
         </View>
-        <View style={styles.containerGoals}>
-          <Text style={styles.textGoals}>{away.goals}</Text>
+        <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
+          <Text style={{ ...styles.textGoals, color: colors.text }}>{away.goals}</Text>
         </View>
         <View style={styles.containerName}>
-          <Text style={styles.textName}>{away.name}</Text>
+          <Text style={{ ...styles.textName, color: colors.text }}>{away.name}</Text>
         </View>
-        <View style={styles.containerDate}>
-          <Text style={styles.textDate}>{moment(datetime).format('DD/MM HH:mm')}</Text>
+        <View style={{ ...styles.containerDate, backgroundColor: colors.card }}>
+          <Text style={{ ...styles.textDate, color: colors.text }}>
+            {moment(datetime).format('DD/MM HH:mm')}
+          </Text>
         </View>
       </View>
     );
@@ -30,7 +34,9 @@ const Matches = ({ matches, title }) => {
   return (
     <FlatList
       style={styles.flatList}
-      ListHeaderComponent={() => <Text style={styles.textList}>{title}</Text>}
+      ListHeaderComponent={() => (
+        <Text style={{ ...styles.textList, color: colors.text }}>{title}</Text>
+      )}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
       data={matches}
       keyExtractor={(item, index) => index.toString()}
@@ -82,6 +88,8 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     borderStartWidth: 2,
+    borderBottomRightRadius: 15,
+    borderTopRightRadius: 15,
   },
   textName: {
     textAlign: 'center',

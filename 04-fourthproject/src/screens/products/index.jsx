@@ -32,7 +32,11 @@ const Products = ({ navigation }) => {
           <Matches matches={matchesTm} title={'Partidos de Mañana'} />
         </View>
         <View style={styles.buttonContainer}>
-          <Button title="Go to Product" onPress={() => navigation.navigate('Product')} />
+          <Button
+            color="#400219"
+            title="Go to Product"
+            onPress={() => navigation.navigate('Product')}
+          />
         </View>
       </View>
     </ScrollView>

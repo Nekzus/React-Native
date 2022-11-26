@@ -25,7 +25,11 @@ const Product = ({ navigation }) => {
           <Matches matches={matches} title={'Historial de Partidos'} />
         </View>
         <View style={styles.buttonContainer}>
-          <Button title="Go to Home" onPress={() => navigation.navigate('Categories')} />
+          <Button
+            color="#400219"
+            title="Go to Home"
+            onPress={() => navigation.navigate('Categories')}
+          />
         </View>
       </View>
     </ScrollView>

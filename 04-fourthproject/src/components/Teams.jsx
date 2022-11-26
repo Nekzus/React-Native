@@ -2,15 +2,25 @@ import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-nativ
 
 import React from 'react';
 import { useDeviceOrientation } from '@react-native-community/hooks';
+import { useTheme } from '@react-navigation/native';
 
 const Teams = ({ groups }) => {
+  const { colors } = useTheme();
   const { landscape } = useDeviceOrientation();
   const numColumns = landscape ? 4 : 2;
   const renderItemT = ({ item }) => {
     return (
-      <Text style={styles.conText}>
-        {item.name} ({item.group_points})
-      </Text>
+      // <Text style={{ ...styles.conText, color: colors.text }}>
+      //   {item.name} ({item.group_points})
+      // </Text>
+      <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
+        <View style={styles.containerName}>
+          <Text style={{ ...styles.textName, color: colors.text }}>{item.name}</Text>
+        </View>
+        <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
+          <Text style={{ ...styles.textGoals, color: colors.text }}>{item.group_points}</Text>
+        </View>
+      </View>
     );
   };
 
@@ -20,11 +30,11 @@ const Teams = ({ groups }) => {
       a.group_points > b.group_points ? -1 : a.group_points < b.group_points ? 1 : 0
     );
     return (
-      <View style={styles.table}>
-        <View style={styles.header}>
+      <View style={styles.card}>
+        <View style={{ ...styles.header, backgroundColor: colors.card }}>
           <Text style={styles.title}>Grupo {letter}</Text>
         </View>
-        <View style={styles.content}>
+        <View style={{ ...styles.content, backgroundColor: colors.notification }}>
           <FlatList
             data={teams}
             keyExtractor={(item2, index) => index.toString()}
@@ -46,7 +56,9 @@ const Teams = ({ groups }) => {
     <FlatList
       key={landscape ? 'h' : 'v'}
       style={styles.flatList}
-      ListHeaderComponent={() => <Text style={styles.textList}>Grupos y Posiciones</Text>}
+      ListHeaderComponent={() => (
+        <Text style={{ ...styles.textList, color: colors.text }}>Grupos y Posiciones</Text>
+      )}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
       contentContainerStyle={{ alignItems: 'center' }}
       data={groups}
@@ -66,9 +78,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
   },
-  table: {
-    width: 200,
-    height: 150,
+  card: {
+    width: 180,
+    height: 180,
     borderRadius: 20,
     margin: 10,
     shadowColor: '#000',
@@ -86,9 +98,8 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
   },
   header: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'gray',
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
   },
@@ -98,8 +109,50 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
   },
-  content: {
+  matchTable: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    height: 30,
+    borderWidth: 2,
+    borderRadius: 15,
+    marginVertical: 2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+    shadowOpacity: 0.48,
+    shadowRadius: 11.95,
+    elevation: 18,
+  },
+  containerName: {
     flex: 5,
+    height: '100%',
+    justifyContent: 'center',
+  },
+  textName: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontFamily: 'Lato-Regular',
+  },
+  containerGoals: {
+    flex: 1,
+    height: '100%',
+    borderLeftWidth: 2,
+    borderRightWidth: 1,
+    justifyContent: 'center',
+    borderBottomRightRadius: 15,
+    borderTopRightRadius: 15,
+  },
+  textGoals: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontFamily: 'Lato-Bold',
+  },
+  content: {
+    flex: 4,
     justifyContent: 'space-around',
     borderBottomStartRadius: 20,
     borderBottomEndRadius: 20,

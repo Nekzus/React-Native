@@ -21,7 +21,11 @@ const Categories = ({ navigation }) => {
         <Teams groups={groups} />
       </View>
       <View style={styles.buttonContainer}>
-        <Button title="Go to Products" onPress={() => navigation.navigate('Products')} />
+        <Button
+          color="#400219"
+          title="Go to Products"
+          onPress={() => navigation.navigate('Products')}
+        />
       </View>
     </View>
   );
