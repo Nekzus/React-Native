@@ -1,13 +1,32 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
-import React from 'react';
+import Matches from '../../components/Matches';
+import Moment from 'moment';
+import { reqWorldApi } from '../../api/regWorldCup';
 
-const Products = ({ navigation }) => {
+const Products = () => {
+  const [matches, setMatches] = useState([]);
+  Moment.locale('es-mx');
+  useEffect(() => {
+    chargeMatches();
+  }, []);
+
+  const chargeMatches = async () => {
+    const { data } = await reqWorldApi.get('/matches/today');
+    setMatches(data);
+  };
+
+  const renderItem = ({ home_team, away_team, datetime, id }) => {
+    return <Matches key={id} home={home_team} away={away_team} date={datetime} />;
+  };
+
   return (
-    <View style={styles.screen}>
-      <Text style={styles.title}>Products Screen</Text>
-      <Button title="Go to Product" color="black" onPress={() => navigation.navigate('Product')} />
-    </View>
+    <ScrollView>
+      <View style={styles.screen}>
+        <View style={styles.container}>{matches.map(renderItem)}</View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -17,10 +36,10 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: 'gray',
   },
-  title: {
-    fontFamily: 'Lato-Bold',
-    fontSize: 20,
+  container: {
+    alignItems: 'center',
+    padding: 5,
   },
 });

@@ -10,13 +10,13 @@ export default function App() {
     'Lato-Italic': require('../assets/fonts/Lato-Italic.ttf'),
   });
 
-  // if (!loaded) {
-  //   return (
-  //     <View styles={styles.container}>
-  //       <ActivityIndicator color="#DAC4F7" size="large" />
-  //     </View>
-  //   );
-  // }
+  if (!loaded) {
+    return (
+      <View styles={styles.container}>
+        <ActivityIndicator color="#DAC4F7" size="large" />
+      </View>
+    );
+  }
   return <AppNavigator />;
 }
 

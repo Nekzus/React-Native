@@ -17,8 +17,8 @@ const Product = () => {
     setMatches(data);
   };
 
-  const renderItem = ({ home_team, away_team, datetime }) => {
-    return <Matches home={home_team} away={away_team} date={datetime} />;
+  const renderItem = ({ home_team, away_team, datetime, id }) => {
+    return <Matches key={id} home={home_team} away={away_team} date={datetime} />;
   };
 
   return (

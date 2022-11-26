@@ -15,13 +15,11 @@ const Categories = ({ navigation }) => {
     setGroups(resp.data.groups);
   };
 
-  const renderItem = ({ letter, teams }) => {
-    return <Teams key={letter.toString()} letter={letter} teams={teams} />;
-  };
-
   return (
     <View style={styles.screen}>
-      <View style={styles.container}>{groups.map(renderItem)}</View>
+      <View style={styles.container}>
+        <Teams groups={groups} />
+      </View>
       <View style={styles.buttonContainer}>
         <Button
           title="Go to Products"
@@ -42,9 +40,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
   container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    flex: 7,
+    alignItems: 'center',
+    backgroundColor: 'red',
   },
   buttonContainer: {
     flex: 1,
