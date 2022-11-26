@@ -1,20 +1,11 @@
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
-import React, { useEffect, useState } from 'react';
 
+import React from 'react';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 
 const Teams = ({ groups }) => {
-  const { portrait, landscape } = useDeviceOrientation();
-  const [numColums, setNumColums] = useState(2);
-
-  useEffect(() => {
-    if (landscape) setNumColums(4);
-  }, [landscape]);
-
-  console.log({ numColums });
-
-  console.log({ portrait, landscape });
-
+  const { landscape } = useDeviceOrientation();
+  const numColumns = landscape ? 4 : 2;
   const renderItemT = ({ item }) => {
     return (
       <Text style={styles.conText}>
@@ -49,6 +40,7 @@ const Teams = ({ groups }) => {
   }
   return (
     <FlatList
+      key={landscape ? 'h' : 'v'}
       style={styles.flatList}
       ListHeaderComponent={() => <Text style={styles.textList}>Grupos y Puntajes</Text>}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10, backgroundColor: 'pink' }}
@@ -58,7 +50,7 @@ const Teams = ({ groups }) => {
       keyExtractor={(item, index) => index.toString()}
       listKey={(item, index) => index.toString()}
       renderItem={renderItemG}
-      numColumns={numColums}
+      numColumns={numColumns}
     />
   );
 };

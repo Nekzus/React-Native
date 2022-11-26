@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import Matches from '../../components/Matches';
 import Moment from 'moment';
+import { ScrollView } from 'react-native-virtualized-view';
 import { reqWorldApi } from '../../api/regWorldCup';
 
 const Product = () => {
@@ -17,14 +18,12 @@ const Product = () => {
     setMatches(data);
   };
 
-  const renderItem = ({ home_team, away_team, datetime, id }) => {
-    return <Matches key={id} home={home_team} away={away_team} date={datetime} />;
-  };
-
   return (
     <ScrollView>
       <View style={styles.screen}>
-        <View style={styles.container}>{matches.map(renderItem)}</View>
+        <View style={styles.container}>
+          <Matches matches={matches} title={'Historial de Partidos'} />
+        </View>
       </View>
     </ScrollView>
   );
@@ -40,6 +39,6 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
-    padding: 5,
+    padding: 10,
   },
 });
