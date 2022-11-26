@@ -1,12 +1,12 @@
+import { Button, StyleSheet, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
 
 import Matches from '../../components/Matches';
 import Moment from 'moment';
 import { ScrollView } from 'react-native-virtualized-view';
 import { reqWorldApi } from '../../api/regWorldCup';
 
-const Product = () => {
+const Product = ({ navigation }) => {
   const [matches, setMatches] = useState([]);
   Moment.locale('es-mx');
   useEffect(() => {
@@ -24,6 +24,13 @@ const Product = () => {
         <View style={styles.container}>
           <Matches matches={matches} title={'Historial de Partidos'} />
         </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            title="Go to Home"
+            color="black"
+            onPress={() => navigation.navigate('Categories')}
+          />
+        </View>
       </View>
     </ScrollView>
   );
@@ -40,5 +47,12 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     padding: 10,
+  },
+  buttonContainer: {
+    flex: 5,
+    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'green',
   },
 });

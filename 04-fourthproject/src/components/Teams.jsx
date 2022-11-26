@@ -15,14 +15,18 @@ const Teams = ({ groups }) => {
   };
 
   const renderItemG = ({ item }) => {
+    const { letter, teams } = item;
+    teams.sort((a, b) =>
+      a.group_points > b.group_points ? -1 : a.group_points < b.group_points ? 1 : 0
+    );
     return (
       <View style={styles.table}>
         <View style={styles.header}>
-          <Text style={styles.title}>Grupo {item.letter}</Text>
+          <Text style={styles.title}>Grupo {letter}</Text>
         </View>
         <View style={styles.content}>
           <FlatList
-            data={item.teams}
+            data={teams}
             keyExtractor={(item2, index) => index.toString()}
             listKey={(item2, index) => index.toString()}
             renderItem={renderItemT}
@@ -42,7 +46,7 @@ const Teams = ({ groups }) => {
     <FlatList
       key={landscape ? 'h' : 'v'}
       style={styles.flatList}
-      ListHeaderComponent={() => <Text style={styles.textList}>Grupos y Puntajes</Text>}
+      ListHeaderComponent={() => <Text style={styles.textList}>Grupos y Posiciones</Text>}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10, backgroundColor: 'pink' }}
       contentContainerStyle={{ alignItems: 'center', backgroundColor: 'violet' }}
       columnWrapperStyle={{ backgroundColor: 'green' }}
