@@ -1,4 +1,4 @@
-import { Button, StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 import { Teams } from '../../components';
@@ -21,11 +21,11 @@ const GroupsTeams = ({ navigation }) => {
         <Teams groups={groups} title={'Fase de Grupos y Posiciones'} />
       </View>
       <View style={styles.buttonContainer}>
-        <Button
-          color="#400219"
-          title="Historial Partidos"
-          onPress={() => navigation.navigate('Historial-Partidos')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Historial-Partidos')}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Historial Partidos</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -47,5 +47,27 @@ const styles = StyleSheet.create({
     minHeight: 40,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  button: {
+    width: 200,
+    alignItems: 'center',
+    backgroundColor: '#400219',
+    borderRadius: 50,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 12.35,
+
+    elevation: 19,
+  },
+  buttonText: {
+    textTransform: 'uppercase',
+    fontSize: 15,
+    textAlign: 'center',
+    padding: 20,
+    color: 'white',
   },
 });

@@ -8,7 +8,7 @@ import { primaryTheme } from '../constants/themes/primaryTheme';
 const AppNavigator = () => {
   return (
     <SafeAreaProvider>
-      <StatusBar />
+      <StatusBar backgroundColor="#400219" />
       <NavigationContainer theme={primaryTheme}>
         <WorldcupNavigator />
       </NavigationContainer>

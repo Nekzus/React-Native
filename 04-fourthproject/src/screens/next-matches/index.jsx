@@ -1,4 +1,4 @@
-import { Button, StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 import { Matches } from '../../components';
@@ -33,11 +33,11 @@ const NextMatches = ({ navigation }) => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <Button
-          color="#400219"
-          title="Grupos Posiciones"
-          onPress={() => navigation.navigate('Grupos-Posiciones')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Grupos-Posiciones')}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Grupos Posiciones</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -53,12 +53,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 12,
     alignItems: 'center',
-    padding: 10,
+    paddingHorizontal: 5,
   },
   buttonContainer: {
     flex: 1,
     minHeight: 40,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  button: {
+    width: 200,
+    alignItems: 'center',
+    backgroundColor: '#400219',
+    borderRadius: 50,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 12.35,
+
+    elevation: 19,
+  },
+  buttonText: {
+    textTransform: 'uppercase',
+    fontSize: 15,
+    textAlign: 'center',
+    padding: 20,
+    color: 'white',
   },
 });
