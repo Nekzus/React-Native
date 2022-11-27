@@ -1,23 +1,21 @@
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
-import { countriesValidate } from '../helpers/countries';
+import { countriesValidate } from '../helpers/middleware-countries';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 
 const Teams = ({ groups }) => {
   const { colors } = useTheme();
   const { landscape } = useDeviceOrientation();
-  const numColumns = landscape ? 4 : 2;
+  const numColumns = landscape ? 2 : 1;
   const renderItemT = ({ item }) => {
-    const name = countriesValidate(item.country);
+    const country = countriesValidate(item.country);
     return (
-      // <Text style={{ ...styles.conText, color: colors.text }}>
-      //   {item.name} ({item.group_points})
-      // </Text>
       <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
         <View style={styles.containerName}>
-          <Text style={{ ...styles.textName, color: colors.text }}>{name}</Text>
+          <Image source={{ uri: country.flag }} style={styles.imageFlag} />
+          <Text style={{ ...styles.textName, color: colors.text }}>{country.name}</Text>
         </View>
         <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
           <Text style={{ ...styles.textGoals, color: colors.text }}>{item.group_points}</Text>
@@ -81,8 +79,8 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
   card: {
-    width: 210,
-    height: 200,
+    width: 310,
+    height: 210,
     borderRadius: 20,
     margin: 10,
     shadowColor: '#000',
@@ -97,7 +95,6 @@ const styles = StyleSheet.create({
   },
   flatList: {
     width: '100%',
-    // backgroundColor: 'blue',
   },
   header: {
     flex: 1,
@@ -131,8 +128,15 @@ const styles = StyleSheet.create({
   },
   containerName: {
     flex: 5,
+    flexDirection: 'row',
     height: '100%',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  imageFlag: {
+    height: 20,
+    width: 30,
+    marginHorizontal: 15,
   },
   textName: {
     textAlign: 'center',

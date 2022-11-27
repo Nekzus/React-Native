@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 
 import Matches from '../../components/Matches';
 import Moment from 'moment';
-import { ScrollView } from 'react-native-virtualized-view';
 import { reqWorldApi } from '../../api/regWorldCup';
 
 const Product = ({ navigation }) => {
@@ -19,20 +18,18 @@ const Product = ({ navigation }) => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.screen}>
-        <View style={styles.container}>
-          <Matches matches={matches} title={'Historial de Partidos'} />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            color="#400219"
-            title="Go to Home"
-            onPress={() => navigation.navigate('Categories')}
-          />
-        </View>
+    <View style={styles.screen}>
+      <View style={styles.container}>
+        <Matches matches={matches} title={'Historial de Partidos'} />
       </View>
-    </ScrollView>
+      <View style={styles.buttonContainer}>
+        <Button
+          color="#400219"
+          title="Go to Home"
+          onPress={() => navigation.navigate('Categories')}
+        />
+      </View>
+    </View>
   );
 };
 
@@ -42,16 +39,15 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    // backgroundColor: 'gray',
   },
   container: {
+    flex: 10,
     alignItems: 'center',
     padding: 10,
   },
   buttonContainer: {
-    height: 100,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'green',
   },
 });
