@@ -64,8 +64,9 @@ const styles = StyleSheet.create({
     elevation: 19,
   },
   buttonText: {
-    textTransform: 'uppercase',
+    fontFamily: 'Lato-Regular',
     fontSize: 15,
+    textTransform: 'uppercase',
     textAlign: 'center',
     padding: 20,
     color: 'white',
