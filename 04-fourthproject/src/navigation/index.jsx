@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import ShopNavigator from './shop';
 import { StatusBar } from 'react-native';
+import WorldcupNavigator from './worldcup';
 import { primaryTheme } from '../constants/themes/primaryTheme';
 
 const AppNavigator = () => {
@@ -10,7 +10,7 @@ const AppNavigator = () => {
     <SafeAreaProvider>
       <StatusBar />
       <NavigationContainer theme={primaryTheme}>
-        <ShopNavigator />
+        <WorldcupNavigator />
       </NavigationContainer>
     </SafeAreaProvider>
   );
