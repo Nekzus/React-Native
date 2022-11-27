@@ -6,7 +6,7 @@ import { positionTeams } from '../helpers/position-teams';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 
-const Teams = ({ groups }) => {
+const Teams = ({ groups, title }) => {
   const { colors } = useTheme();
   const { landscape } = useDeviceOrientation();
   const numColumns = landscape ? 2 : 1;
@@ -56,7 +56,7 @@ const Teams = ({ groups }) => {
       key={landscape ? 'h' : 'v'}
       style={styles.flatList}
       ListHeaderComponent={() => (
-        <Text style={{ ...styles.textList, color: colors.text }}>Grupos y Posiciones</Text>
+        <Text style={{ ...styles.textList, color: colors.text }}>{title}</Text>
       )}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
       contentContainerStyle={{ alignItems: 'center' }}

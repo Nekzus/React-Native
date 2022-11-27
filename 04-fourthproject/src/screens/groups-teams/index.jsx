@@ -18,7 +18,7 @@ const GroupsTeams = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <View style={styles.container}>
-        <Teams groups={groups} />
+        <Teams groups={groups} title={'Fase de Grupos y Posiciones'} />
       </View>
       <View style={styles.buttonContainer}>
         <Button

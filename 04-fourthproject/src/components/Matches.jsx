@@ -5,7 +5,7 @@ import { countriesValidate } from '../helpers/middleware-countries';
 import moment from 'moment/moment';
 import { useTheme } from '@react-navigation/native';
 
-const Matches = ({ matches, title }) => {
+const Matches = ({ matches, title, component = '' }) => {
   const { colors } = useTheme();
   const renderItem = ({ item }) => {
     const { home_team: home, away_team: away, datetime } = item;
@@ -47,6 +47,7 @@ const Matches = ({ matches, title }) => {
         <Text style={{ ...styles.textList, color: colors.text }}>{title}</Text>
       )}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
+      ListFooterComponent={() => component}
       data={matches}
       keyExtractor={(item, index) => index.toString()}
       listKey={(item, index) => index.toString()}
@@ -60,7 +61,7 @@ export default Matches;
 const styles = StyleSheet.create({
   flatList: {
     width: '100%',
-    // backgroundColor: 'blue',
+    maxWidth: 700,
   },
   matchTable: {
     flexDirection: 'row',

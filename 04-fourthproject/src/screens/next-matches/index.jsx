@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 
 import { Matches } from '../../components';
 import Moment from 'moment';
-import { ScrollView } from 'react-native-virtualized-view';
 import { reqWorldApi } from '../../api/regWorldCup';
 
 const NextMatches = ({ navigation }) => {
@@ -25,21 +24,22 @@ const NextMatches = ({ navigation }) => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.screen}>
-        <View style={styles.container}>
-          <Matches matches={matchesTd} title={'Partidos de Hoy'} />
-          <Matches matches={matchesTm} title={'Partidos de Mañana'} />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            color="#400219"
-            title="Grupos Posiciones"
-            onPress={() => navigation.navigate('Grupos-Posiciones')}
-          />
-        </View>
+    <View style={styles.screen}>
+      <View style={styles.container}>
+        <Matches
+          matches={matchesTd}
+          title={'Partidos de Hoy'}
+          component={<Matches matches={matchesTm} title={'Partidos de Mañana'} />}
+        />
       </View>
-    </ScrollView>
+      <View style={styles.buttonContainer}>
+        <Button
+          color="#400219"
+          title="Grupos Posiciones"
+          onPress={() => navigation.navigate('Grupos-Posiciones')}
+        />
+      </View>
+    </View>
   );
 };
 
@@ -49,18 +49,16 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    // backgroundColor: 'gray',
   },
   container: {
-    flex: 8,
+    flex: 12,
     alignItems: 'center',
     padding: 10,
   },
   buttonContainer: {
-    flex: 5,
-    marginTop: 20,
+    flex: 1,
+    minHeight: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'green',
   },
 });
