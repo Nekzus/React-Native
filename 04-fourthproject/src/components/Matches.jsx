@@ -1,4 +1,12 @@
-import { FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
@@ -40,6 +48,14 @@ const Matches = ({ matches, title, component = '' }) => {
     );
   };
 
+  const loaderList = () => {
+    return (
+      <View style={styles.containerLoader}>
+        <ActivityIndicator color="white" size="large" />
+      </View>
+    );
+  };
+
   return (
     <FlatList
       style={styles.flatList}
@@ -48,10 +64,14 @@ const Matches = ({ matches, title, component = '' }) => {
       )}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
       ListFooterComponent={() => component}
+      contentContainerStyle={{
+        flexGrow: 1,
+      }}
       data={matches}
       keyExtractor={(item, index) => index.toString()}
       listKey={(item, index) => index.toString()}
       renderItem={renderItem}
+      ListEmptyComponent={loaderList}
     />
   );
 };
@@ -59,6 +79,10 @@ const Matches = ({ matches, title, component = '' }) => {
 export default Matches;
 
 const styles = StyleSheet.create({
+  containerLoader: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
   flatList: {
     width: '100%',
     maxWidth: 700,

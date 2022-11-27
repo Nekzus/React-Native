@@ -1,14 +1,6 @@
-import {
-  ActivityIndicator,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 import AppNavigator from './navigation';
-import { Categories } from './screens';
 import { useFonts } from 'expo-font';
 
 export default function App() {

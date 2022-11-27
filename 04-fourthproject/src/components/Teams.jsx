@@ -44,13 +44,14 @@ const Teams = ({ groups, title }) => {
       </View>
     );
   };
-  if (!groups) {
+
+  const loaderList = () => {
     return (
-      <View styles={styles.containerLoader}>
-        <ActivityIndicator color="red" size="large" />
+      <View style={styles.containerLoader}>
+        <ActivityIndicator color="white" size="large" />
       </View>
     );
-  }
+  };
   return (
     <FlatList
       key={landscape ? 'h' : 'v'}
@@ -59,12 +60,16 @@ const Teams = ({ groups, title }) => {
         <Text style={{ ...styles.textList, color: colors.text }}>{title}</Text>
       )}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
-      contentContainerStyle={{ alignItems: 'center' }}
+      contentContainerStyle={{
+        flexGrow: 1,
+        alignItems: 'center',
+      }}
       data={groups}
       keyExtractor={(item, index) => index.toString()}
       listKey={(item, index) => index.toString()}
       renderItem={renderItemG}
       numColumns={numColumns}
+      ListEmptyComponent={loaderList}
     />
   );
 };
@@ -73,9 +78,8 @@ export default Teams;
 
 const styles = StyleSheet.create({
   containerLoader: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'center',
-    alignContent: 'center',
   },
   card: {
     width: 310,
