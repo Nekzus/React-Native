@@ -1,4 +1,4 @@
-import { Categories, Product, Products } from '../screens';
+import { GroupsTeams, MatchHistory, NextMatches } from '../screens';
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -14,10 +14,10 @@ const ShopNavigator = () => {
           // backgroundColor: 'gray',
         },
       }}
-      initialRouteName="Categories">
-      <Stack.Screen name="Categories" component={Categories} />
-      <Stack.Screen name="Products" component={Products} />
-      <Stack.Screen name="Product" component={Product} />
+      initialRouteName="Grupos-Posiciones">
+      <Stack.Screen name="Grupos-Posiciones" component={GroupsTeams} />
+      <Stack.Screen name="Proximos-Partidos" component={NextMatches} />
+      <Stack.Screen name="Historial-Partidos" component={MatchHistory} />
     </Stack.Navigator>
   );
 };

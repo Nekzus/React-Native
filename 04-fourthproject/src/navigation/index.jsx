@@ -1,13 +1,11 @@
-import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import { StatusBar, useColorScheme } from 'react-native';
-
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ShopNavigator from './shop';
+import { StatusBar } from 'react-native';
 import { primaryTheme } from '../constants/themes/primaryTheme';
 
 const AppNavigator = () => {
-  const scheme = useColorScheme();
   return (
     <SafeAreaProvider>
       <StatusBar />

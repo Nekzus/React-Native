@@ -1,11 +1,11 @@
 import { Button, StyleSheet, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
-import Matches from '../../components/Matches';
+import { Matches } from '../../components';
 import Moment from 'moment';
 import { reqWorldApi } from '../../api/regWorldCup';
 
-const Product = ({ navigation }) => {
+const MatchHistory = ({ navigation }) => {
   const [matches, setMatches] = useState([]);
   Moment.locale('es-mx');
   useEffect(() => {
@@ -25,15 +25,15 @@ const Product = ({ navigation }) => {
       <View style={styles.buttonContainer}>
         <Button
           color="#400219"
-          title="Go to Home"
-          onPress={() => navigation.navigate('Categories')}
+          title="Proximos Partidos"
+          onPress={() => navigation.navigate('Proximos-Partidos')}
         />
       </View>
     </View>
   );
 };
 
-export default Product;
+export default MatchHistory;
 
 const styles = StyleSheet.create({
   screen: {
