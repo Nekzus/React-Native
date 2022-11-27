@@ -2,6 +2,7 @@ import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View } from 'reac
 
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
+import { positionTeams } from '../helpers/position-teams';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 
@@ -26,9 +27,7 @@ const Teams = ({ groups }) => {
 
   const renderItemG = ({ item }) => {
     const { letter, teams } = item;
-    teams.sort((a, b) =>
-      a.group_points > b.group_points ? -1 : a.group_points < b.group_points ? 1 : 0
-    );
+    positionTeams(teams);
     return (
       <View style={styles.card}>
         <View style={{ ...styles.header, backgroundColor: colors.card }}>
