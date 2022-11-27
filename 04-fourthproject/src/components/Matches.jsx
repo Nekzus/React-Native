@@ -1,4 +1,4 @@
-import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
@@ -14,6 +14,7 @@ const Matches = ({ matches, title }) => {
     return (
       <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
         <View style={styles.containerName}>
+          <Image source={{ uri: countryH.flag }} style={styles.imageFlag} />
           <Text style={{ ...styles.textName, color: colors.text }}>
             {!countryH.name ? 'A definir' : countryH.name}
           </Text>
@@ -25,6 +26,7 @@ const Matches = ({ matches, title }) => {
           <Text style={{ ...styles.textGoals, color: colors.text }}>{away.goals}</Text>
         </View>
         <View style={styles.containerName}>
+          <Image source={{ uri: countryA.flag }} style={styles.imageFlag} />
           <Text style={{ ...styles.textName, color: colors.text }}>
             {!countryA.name ? 'A definir' : countryA.name}
           </Text>
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    height: 35,
+    height: 40,
     borderWidth: 2,
     borderRadius: 15,
     marginVertical: 5,
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
     flex: 5,
     height: '100%',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   containerGoals: {
     flex: 1,
@@ -98,9 +101,13 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 15,
     borderTopRightRadius: 15,
   },
+  imageFlag: {
+    height: 15,
+    width: 25,
+  },
   textName: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 15,
     fontFamily: 'Lato-Regular',
   },
   textGoals: {

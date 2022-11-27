@@ -41,12 +41,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container: {
-    flex: 10,
+    flex: 12,
     alignItems: 'center',
     padding: 10,
   },
   buttonContainer: {
     flex: 1,
+    minHeight: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },
