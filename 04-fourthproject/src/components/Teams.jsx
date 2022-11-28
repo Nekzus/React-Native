@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
     height: 20,
     width: 30,
     marginHorizontal: 15,
+    borderRadius: 5,
   },
   textName: {
     textAlign: 'center',

@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
   imageFlag: {
     height: 15,
     width: 25,
+    borderRadius: 2,
   },
   textName: {
     textAlign: 'center',
