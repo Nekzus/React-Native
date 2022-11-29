@@ -15,9 +15,21 @@ const WorldcupNavigator = () => {
         },
       }}
       initialRouteName="Grupos-Posiciones">
-      <Stack.Screen name="Grupos-Posiciones" component={GroupsTeams} />
-      <Stack.Screen name="Proximos-Partidos" component={NextMatches} />
-      <Stack.Screen name="Historial-Partidos" component={MatchHistory} />
+      <Stack.Screen
+        name="Grupos-Posiciones"
+        component={GroupsTeams}
+        options={{ title: 'Grupos y Posiciones' }}
+      />
+      <Stack.Screen
+        name="Proximos-Partidos"
+        component={NextMatches}
+        options={{ title: 'Próximos Partidos' }}
+      />
+      <Stack.Screen
+        name="Historial-Partidos"
+        component={MatchHistory}
+        options={{ title: 'Historial de Partidos' }}
+      />
     </Stack.Navigator>
   );
 };
