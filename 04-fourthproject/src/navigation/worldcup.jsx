@@ -2,16 +2,19 @@ import { GroupsTeams, MatchHistory, NextMatches } from '../screens';
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useTheme } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 
 const WorldcupNavigator = () => {
+  const { colors } = useTheme();
   return (
     <Stack.Navigator
       screenOptions={{
-        headerMode: 'screen',
+        presentation: 'card',
+        headerBackTitle: '',
         headerStyle: {
-          // backgroundColor: 'gray',
+          backgroundColor: colors.card,
         },
       }}
       initialRouteName="Grupos-Posiciones">
