@@ -39,7 +39,13 @@ const TeamsCountries = ({ navigation, route }) => {
     return (
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Equipos-Paises', { country: item.country })}>
+          onPress={() =>
+            navigation.navigate('Estadisticas-Pais', {
+              name: itemCountry.name,
+              country: item.country,
+              flag: itemCountry.flag,
+            })
+          }>
           <View style={{ ...styles.button, backgroundColor: colors.card }}>
             <Image source={{ uri: itemCountry.flag }} style={styles.imageFlag} />
             <Text style={{ ...styles.buttonText, color: colors.text }}>
@@ -61,10 +67,19 @@ const TeamsCountries = ({ navigation, route }) => {
 
   return (
     <FlatList
+      ListHeaderComponent={() => (
+        <Text style={{ ...styles.textList, color: colors.text }}>Paises Grupo {letter}</Text>
+      )}
       data={countries}
       renderItem={renderItem}
-      style={styles.container}
+      style={styles.flatList}
+      keyExtractor={(item, index) => index.toString()}
       ListEmptyComponent={loaderList}
+      contentContainerStyle={{
+        flexGrow: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
     />
   );
 };
@@ -73,17 +88,16 @@ export default TeamsCountries;
 
 const styles = StyleSheet.create({
   containerLoader: {
-    flexGrow: 1,
     justifyContent: 'center',
   },
-  container: {
-    flex: 1,
+  flatList: {
+    width: '100%',
+    height: '100%',
+    maxWidth: 700,
   },
   buttonContainer: {
-    flex: 1,
-    minHeight: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginVertical: 10,
+    marginHorizontal: 10,
   },
   button: {
     flexDirection: 'row',
@@ -114,5 +128,11 @@ const styles = StyleSheet.create({
     width: 30,
     marginHorizontal: 15,
     borderRadius: 5,
+  },
+  textList: {
+    textAlign: 'center',
+    fontFamily: 'Lato-Bold',
+    fontSize: 25,
+    marginVertical: 20,
   },
 });

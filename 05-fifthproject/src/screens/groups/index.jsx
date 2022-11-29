@@ -48,27 +48,25 @@ const Groups = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.screen}>
-      <View style={styles.container}>
-        <FlatList
-          key={landscape ? 'h' : 'v'}
-          data={groups}
-          ListHeaderComponent={() => (
-            <Text style={{ ...styles.textList, color: colors.text }}>Grupos</Text>
-          )}
-          style={styles.flatList}
-          keyExtractor={(item, index) => index.toString()}
-          listKey={(item, index) => index.toString()}
-          renderItem={renderItem}
-          ListEmptyComponent={loaderList}
-          contentContainerStyle={{
-            flexGrow: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          numColumns={numColumns}
-        />
-      </View>
+    <View style={styles.container}>
+      <FlatList
+        key={landscape ? 'h' : 'v'}
+        data={groups}
+        ListHeaderComponent={() => (
+          <Text style={{ ...styles.textList, color: colors.text }}>Grupos</Text>
+        )}
+        style={styles.flatList}
+        keyExtractor={(item, index) => index.toString()}
+        listKey={(item, index) => index.toString()}
+        renderItem={renderItem}
+        ListEmptyComponent={loaderList}
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        numColumns={numColumns}
+      />
     </View>
   );
 };

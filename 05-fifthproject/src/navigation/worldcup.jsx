@@ -1,4 +1,11 @@
-import { Groups, GroupsTeams, MatchHistory, NextMatches, TeamsCountries } from '../screens';
+import {
+  CountryTeam,
+  Groups,
+  GroupsTeams,
+  MatchHistory,
+  NextMatches,
+  TeamsCountries,
+} from '../screens';
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -24,6 +31,13 @@ const WorldcupNavigator = () => {
         component={TeamsCountries}
         options={({ route }) => ({
           title: `Paises Grupo ${route.params.letter}`,
+        })}
+      />
+      <Stack.Screen
+        name="Estadisticas-Pais"
+        component={CountryTeam}
+        options={({ route }) => ({
+          title: `Estadisticas ${route.params.name}`,
         })}
       />
       <Stack.Screen

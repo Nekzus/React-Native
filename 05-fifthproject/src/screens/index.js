@@ -1,3 +1,4 @@
+export { default as CountryTeam } from './country';
 export { default as Groups } from './groups';
 export { default as GroupsTeams } from './groups-teams';
 export { default as MatchHistory } from './match-history';
