@@ -23,6 +23,7 @@ const WorldcupNavigator = () => {
         headerStyle: {
           backgroundColor: colors.card,
         },
+        headerTitleAlign: 'center',
       }}
       initialRouteName="Grupos">
       <Stack.Screen name="Grupos" component={Groups} options={{ title: 'Grupos' }} />

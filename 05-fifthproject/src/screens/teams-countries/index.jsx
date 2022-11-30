@@ -44,6 +44,7 @@ const TeamsCountries = ({ navigation, route }) => {
               name: itemCountry.name,
               country: item.country,
               flag: itemCountry.flag,
+              shield: itemCountry.shield,
             })
           }>
           <View style={{ ...styles.button, backgroundColor: colors.card }}>
