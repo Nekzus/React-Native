@@ -67,21 +67,23 @@ const TeamsCountries = ({ navigation, route }) => {
   };
 
   return (
-    <FlatList
-      ListHeaderComponent={() => (
-        <Text style={{ ...styles.textList, color: colors.text }}>Paises Grupo {letter}</Text>
-      )}
-      data={countries}
-      renderItem={renderItem}
-      style={styles.flatList}
-      keyExtractor={(item, index) => index.toString()}
-      ListEmptyComponent={loaderList}
-      contentContainerStyle={{
-        flexGrow: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    />
+    <View style={styles.container}>
+      <FlatList
+        ListHeaderComponent={() => (
+          <Text style={{ ...styles.textList, color: colors.text }}>Paises Grupo {letter}</Text>
+        )}
+        data={countries}
+        renderItem={renderItem}
+        style={styles.flatList}
+        keyExtractor={(item, index) => index.toString()}
+        ListEmptyComponent={loaderList}
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      />
+    </View>
   );
 };
 
@@ -95,6 +97,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     maxWidth: 700,
+  },
+  container: {
+    alignItems: 'center',
   },
   buttonContainer: {
     marginVertical: 10,
