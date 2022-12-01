@@ -109,7 +109,6 @@ const CountryTeam = ({ route }) => {
             </View>
           </View>
         </View>
-        <View style={styles.footer}></View>
       </View>
     </ScrollView>
   );
@@ -125,16 +124,10 @@ const styles = StyleSheet.create({
     flex: 4,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
   },
   content: {
-    // flex: 10,
+    height: 490,
     alignItems: 'center',
-    // backgroundColor: 'pink',
-  },
-  footer: {
-    flex: 1,
-    backgroundColor: 'violet',
   },
   flag: {
     width: 70,

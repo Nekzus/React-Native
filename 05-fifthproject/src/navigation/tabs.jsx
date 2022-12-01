@@ -1,5 +1,6 @@
-import { Ionicons } from '@expo/vector-icons';
-import OrderNavigator from './orders';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+
+import MatchesNavigator from './matches';
 import PositionsNavigator from './positions';
 import React from 'react';
 import WorldcupNavigator from './worldcup';
@@ -14,6 +15,14 @@ const TabNavigator = () => {
     <BottomTab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarLabelStyle: {
+          height: 20,
+          padding: 1,
+          fontFamily: 'Lato-Bold',
+          fontSize: 13,
+        },
+        tabBarActiveBackgroundColor: colors.notification,
+        tabBarActiveTintColor: colors.text,
       }}
       initialRouteName="Grupos">
       <BottomTab.Screen
@@ -32,18 +41,22 @@ const TabNavigator = () => {
         options={{
           title: 'Posiciones',
           tabBarIcon: ({ focused }) => (
-            <Ionicons name={focused ? 'cart' : 'cart-outline'} size={22} color={colors.text} />
+            <MaterialCommunityIcons
+              name={focused ? 'table' : 'table-border'}
+              size={22}
+              color={colors.text}
+            />
           ),
         }}
       />
       <BottomTab.Screen
         name="MatchsTab"
-        component={OrderNavigator}
+        component={MatchesNavigator}
         options={{
           title: 'Partidos',
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name={focused ? 'file-tray' : 'file-tray-outline'}
+              name={focused ? 'football' : 'football-outline'}
               size={22}
               color={colors.text}
             />

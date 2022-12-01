@@ -38,21 +38,22 @@ export default MatchHistory;
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
+    alignItems: 'center',
   },
   container: {
-    flex: 12,
+    width: '100%',
     alignItems: 'center',
+    maxWidth: 450,
     paddingHorizontal: 5,
   },
   buttonContainer: {
-    flex: 1,
+    flex: 0.2,
     minHeight: 40,
     justifyContent: 'center',
     alignItems: 'center',
   },
   button: {
-    width: 200,
+    width: 150,
     alignItems: 'center',
     backgroundColor: '#400219',
     borderRadius: 50,
@@ -68,10 +69,10 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontFamily: 'Lato-Regular',
-    fontSize: 15,
+    fontSize: 10,
     textTransform: 'uppercase',
     textAlign: 'center',
-    padding: 20,
+    padding: 15,
     color: 'white',
   },
 });

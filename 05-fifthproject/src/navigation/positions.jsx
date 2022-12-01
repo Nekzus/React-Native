@@ -1,5 +1,4 @@
-import { Cart, GroupsTeams } from '../screens';
-
+import { GroupsTeams } from '../screens';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from '@react-navigation/native';
@@ -10,7 +9,7 @@ const PositionsNavigator = () => {
   const { colors } = useTheme();
   return (
     <Stack.Navigator
-      initialRouteName="Posiciones"
+      initialRouteName="Grupos-Posiciones"
       screenOptions={{
         presentation: 'card',
         headerBackTitle: '',
@@ -22,7 +21,11 @@ const PositionsNavigator = () => {
         },
         headerTitleAlign: 'center',
       }}>
-      <Stack.Screen name="Posiciones" component={GroupsTeams} />
+      <Stack.Screen
+        name="Grupos-Posiciones"
+        component={GroupsTeams}
+        options={{ title: 'Grupos y Posiciones' }}
+      />
     </Stack.Navigator>
   );
 };

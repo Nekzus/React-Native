@@ -1,6 +1,8 @@
 import {
   ActivityIndicator,
   FlatList,
+  Image,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -49,24 +51,29 @@ const Groups = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        key={landscape ? 'h' : 'v'}
-        data={groups}
-        ListHeaderComponent={() => (
-          <Text style={{ ...styles.textList, color: colors.text }}>Grupos</Text>
-        )}
-        style={styles.flatList}
-        keyExtractor={(item, index) => index.toString()}
-        listKey={(item, index) => index.toString()}
-        renderItem={renderItem}
-        ListEmptyComponent={loaderList}
-        contentContainerStyle={{
-          flexGrow: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-        numColumns={numColumns}
-      />
+      <View style={styles.logoContainer}>
+        <Image source={require('../../../assets/logo.png')} style={styles.imageLogo} />
+      </View>
+      <View style={styles.containerFlat}>
+        <FlatList
+          key={landscape ? 'h' : 'v'}
+          data={groups}
+          ListHeaderComponent={() => (
+            <Text style={{ ...styles.textList, color: colors.text }}>Grupos</Text>
+          )}
+          style={styles.flatList}
+          keyExtractor={(item, index) => index.toString()}
+          listKey={(item, index) => index.toString()}
+          renderItem={renderItem}
+          ListEmptyComponent={loaderList}
+          contentContainerStyle={{
+            flexGrow: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          numColumns={numColumns}
+        />
+      </View>
     </View>
   );
 };
@@ -78,13 +85,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   flatList: {
+    marginTop: 10,
     width: '100%',
     height: '100%',
     maxWidth: 700,
-  },
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
   },
   container: {
     alignItems: 'center',
@@ -119,5 +123,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato-Bold',
     fontSize: 30,
     marginVertical: 20,
+  },
+  logoContainer: {
+    flex: 1,
+    marginTop: 10,
+  },
+  imageLogo: {
+    height: 150,
+    resizeMode: 'contain',
   },
 });
