@@ -1,5 +1,6 @@
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
+import FixtureNavigator from './fixture';
 import MatchesNavigator from './matches';
 import PositionsNavigator from './positions';
 import React from 'react';
@@ -60,6 +61,16 @@ const TabNavigator = () => {
               size={22}
               color={colors.text}
             />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="FixtureTab"
+        component={FixtureNavigator}
+        options={{
+          title: 'Fixture',
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name={focused ? 'trophy' : 'trophy-outline'} size={22} color={colors.text} />
           ),
         }}
       />
