@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { ScrollView } from 'react-native';
-import StatsTeams from '../../components/StatsTeams';
+import { StatsTeams } from '../../components';
 import { reqWorldApi } from '../../api/regWorldCup';
 
 const CountryTeam = ({ route }) => {

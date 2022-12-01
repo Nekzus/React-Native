@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
   content: {
     height: 490,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   flag: {
     width: 70,
