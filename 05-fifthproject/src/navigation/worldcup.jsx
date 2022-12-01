@@ -23,10 +23,13 @@ const WorldcupNavigator = () => {
         headerStyle: {
           backgroundColor: colors.card,
         },
+        headerTitleStyle: {
+          fontFamily: 'Lato-Bold',
+        },
         headerTitleAlign: 'center',
       }}
       initialRouteName="Grupos">
-      <Stack.Screen name="Grupos" component={Groups} options={{ title: 'Grupos' }} />
+      <Stack.Screen name="Grupos" component={Groups} options={{ headerShown: false }} />
       <Stack.Screen
         name="Equipos-Paises"
         component={TeamsCountries}
