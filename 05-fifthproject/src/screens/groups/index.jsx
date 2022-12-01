@@ -2,7 +2,6 @@ import {
   ActivityIndicator,
   FlatList,
   Image,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -52,7 +51,10 @@ const Groups = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
-        <Image source={require('../../../assets/logo.png')} style={styles.imageLogo} />
+        <Image
+          source={require('../../../assets/logo.png')}
+          style={{ ...styles.imageLogo, height: landscape ? 120 : 250 }}
+        />
       </View>
       <View style={styles.containerFlat}>
         <FlatList
@@ -62,15 +64,11 @@ const Groups = ({ navigation }) => {
             <Text
               style={{
                 ...styles.textList,
-                backgroundColor: landscape ? colors.primary : '',
                 color: colors.text,
-                padding: 3,
-                opacity: 0.85,
               }}>
               Grupos
             </Text>
           )}
-          style={styles.flatList}
           keyExtractor={(item, index) => index.toString()}
           listKey={(item, index) => index.toString()}
           renderItem={renderItem}
@@ -93,14 +91,8 @@ const styles = StyleSheet.create({
   containerLoader: {
     justifyContent: 'center',
   },
-  flatList: {
-    marginTop: 10,
-    width: '100%',
-    height: '100%',
-    maxWidth: 700,
-  },
   container: {
-    alignItems: 'center',
+    flex: 1,
   },
   buttonContainer: {
     marginVertical: 10,
@@ -134,11 +126,14 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   logoContainer: {
-    flex: 1,
-    marginTop: 10,
+    flex: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  containerFlat: {
+    flex: 2,
   },
   imageLogo: {
-    height: 150,
     resizeMode: 'contain',
   },
 });
