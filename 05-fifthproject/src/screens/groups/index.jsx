@@ -59,7 +59,16 @@ const Groups = ({ navigation }) => {
           key={landscape ? 'h' : 'v'}
           data={groups}
           ListHeaderComponent={() => (
-            <Text style={{ ...styles.textList, color: colors.text }}>Grupos</Text>
+            <Text
+              style={{
+                ...styles.textList,
+                backgroundColor: landscape ? colors.primary : '',
+                color: colors.text,
+                padding: 3,
+                opacity: 0.85,
+              }}>
+              Grupos
+            </Text>
           )}
           style={styles.flatList}
           keyExtractor={(item, index) => index.toString()}
