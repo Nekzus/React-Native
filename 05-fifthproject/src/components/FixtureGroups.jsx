@@ -30,39 +30,37 @@ const FixtureGroups = ({ data, text }) => {
             {moment(datetime).format('DD/MM HH:mm')}
           </Text>
         </View>
-        <View style={styles.resultsContainer}>
-          <View style={styles.shieldsContainer}>
-            <View style={styles.shieldImage}>
-              <Text style={{ ...styles.textShield, color: colors.text, fontFamily: fonts.content }}>
-                {homeCountry.name ? homeCountry.name : home_team.country}
-              </Text>
-              <Image
-                source={
-                  homeCountry.shield
-                    ? { uri: homeCountry.shield }
-                    : require('../../assets/escudo_vacio.png')
-                }
-                style={styles.shield}
-              />
-            </View>
-            <View style={styles.shieldImage}>
-              <Text style={{ ...styles.textShield, color: colors.text, fontFamily: fonts.content }}>
-                {awayCountry.name ? awayCountry.name : away_team.country}
-              </Text>
-              <Image
-                source={
-                  awayCountry.shield
-                    ? { uri: awayCountry.shield }
-                    : require('../../assets/escudo_vacio.png')
-                }
-                style={styles.shield}
-              />
-            </View>
+        <View style={styles.shieldsContainer}>
+          <View style={styles.shieldImage}>
+            <Text style={{ ...styles.textShield, color: colors.text, fontFamily: fonts.content }}>
+              {homeCountry.name ? homeCountry.name : home_team.country}
+            </Text>
+            <Image
+              source={
+                homeCountry.shield
+                  ? { uri: homeCountry.shield }
+                  : require('../../assets/escudo_vacio.png')
+              }
+              style={styles.shield}
+            />
           </View>
           <View style={{ ...styles.teamsContainer, backgroundColor: colors.card }}>
             <Text style={{ ...styles.textC, color: colors.text, fontFamily: fonts.content }}>
               {home_team.goals} - {away_team.goals}
             </Text>
+          </View>
+          <View style={styles.shieldImage}>
+            <Text style={{ ...styles.textShield, color: colors.text, fontFamily: fonts.content }}>
+              {awayCountry.name ? awayCountry.name : away_team.country}
+            </Text>
+            <Image
+              source={
+                awayCountry.shield
+                  ? { uri: awayCountry.shield }
+                  : require('../../assets/escudo_vacio.png')
+              }
+              style={styles.shield}
+            />
           </View>
         </View>
       </View>
@@ -82,10 +80,6 @@ const FixtureGroups = ({ data, text }) => {
 export default FixtureGroups;
 
 const styles = StyleSheet.create({
-  resultsContainer: {
-    flex: 9,
-    alignItems: 'center',
-  },
   datetimeContainer: {
     flex: 1,
     height: '100%',
@@ -101,7 +95,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     height: 65,
-    width: 150,
+    width: 195,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
@@ -116,13 +110,18 @@ const styles = StyleSheet.create({
     elevation: 19,
   },
   shieldsContainer: {
-    flex: 2,
+    flex: 7,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+    marginHorizontal: 2,
   },
-
+  shieldImage: {
+    flex: 2,
+  },
   teamsContainer: {
-    flex: 1,
+    flex: 1.1,
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 5,
@@ -130,7 +129,6 @@ const styles = StyleSheet.create({
   },
   textC: {
     fontSize: 10,
-    paddingHorizontal: 5,
   },
   shield: {
     width: 35,
@@ -141,11 +139,10 @@ const styles = StyleSheet.create({
   textShield: {
     textAlign: 'center',
     fontSize: 9,
-    padding: 1,
   },
   textDatetime: {
     textAlign: 'center',
-    fontSize: 8,
+    fontSize: 10,
     transform: [{ rotate: '-90deg' }],
     padding: 1,
     width: 50,
