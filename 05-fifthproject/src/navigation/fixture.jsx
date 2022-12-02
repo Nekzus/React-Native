@@ -6,7 +6,7 @@ import { useTheme } from '@react-navigation/native';
 const Stack = createNativeStackNavigator();
 
 const FixtureNavigator = () => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   return (
     <Stack.Navigator
       initialRouteName="Fixture"
@@ -17,7 +17,7 @@ const FixtureNavigator = () => {
           backgroundColor: colors.card,
         },
         headerTitleStyle: {
-          fontFamily: 'Qatar-Bold',
+          fontFamily: fonts.title,
         },
         headerTitleAlign: 'center',
       }}>

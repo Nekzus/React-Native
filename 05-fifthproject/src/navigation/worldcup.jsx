@@ -7,7 +7,7 @@ import { useTheme } from '@react-navigation/native';
 const Stack = createNativeStackNavigator();
 
 const WorldcupNavigator = () => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   return (
     <Stack.Navigator
       initialRouteName="Grupos"
@@ -18,7 +18,7 @@ const WorldcupNavigator = () => {
           backgroundColor: colors.card,
         },
         headerTitleStyle: {
-          fontFamily: 'Qatar-Bold',
+          fontFamily: fonts.title,
         },
         headerTitleAlign: 'center',
       }}>

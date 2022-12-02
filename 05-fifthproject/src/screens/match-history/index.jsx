@@ -4,8 +4,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Matches } from '../../components';
 import Moment from 'moment';
 import { reqWorldApi } from '../../api/regWorldCup';
+import { useTheme } from '@react-navigation/native';
 
 const MatchHistory = ({ navigation }) => {
+  const { colors, fonts } = useTheme();
   const [matches, setMatches] = useState([]);
   Moment.locale('es-mx');
   useEffect(() => {
@@ -24,8 +26,10 @@ const MatchHistory = ({ navigation }) => {
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('Proximos-Partidos')}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Proximos Partidos</Text>
+          <View style={{ ...styles.button, backgroundColor: colors.card }}>
+            <Text style={{ ...styles.buttonText, fontFamily: fonts.content }}>
+              Proximos Partidos
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -56,7 +60,6 @@ const styles = StyleSheet.create({
   button: {
     width: 150,
     alignItems: 'center',
-    backgroundColor: '#400219',
     borderRadius: 50,
     shadowColor: '#000',
     shadowOffset: {
@@ -69,7 +72,6 @@ const styles = StyleSheet.create({
     elevation: 19,
   },
   buttonText: {
-    fontFamily: 'Qatar-Bold',
     fontSize: 10,
     textTransform: 'uppercase',
     textAlign: 'center',

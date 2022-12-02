@@ -6,7 +6,7 @@ import moment from 'moment/moment';
 import { useTheme } from '@react-navigation/native';
 
 const Matches = ({ matches, title, component = '' }) => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   const renderItem = ({ item }) => {
     const { home_team: home, away_team: away, datetime } = item;
     const countryH = countriesValidate(home.country);
@@ -15,24 +15,28 @@ const Matches = ({ matches, title, component = '' }) => {
       <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
         <View style={styles.containerName}>
           <Image source={{ uri: countryH.flag }} style={styles.imageFlag} />
-          <Text style={{ ...styles.textName, color: colors.text }}>
+          <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
             {!countryH.name ? 'A definir' : countryH.name}
           </Text>
         </View>
         <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-          <Text style={{ ...styles.textGoals, color: colors.text }}>{home.goals}</Text>
+          <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+            {home.goals}
+          </Text>
         </View>
         <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-          <Text style={{ ...styles.textGoals, color: colors.text }}>{away.goals}</Text>
+          <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+            {away.goals}
+          </Text>
         </View>
         <View style={styles.containerName}>
           <Image source={{ uri: countryA.flag }} style={styles.imageFlag} />
-          <Text style={{ ...styles.textName, color: colors.text }}>
+          <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
             {!countryA.name ? 'A definir' : countryA.name}
           </Text>
         </View>
         <View style={{ ...styles.containerDate, backgroundColor: colors.card }}>
-          <Text style={{ ...styles.textDate, color: colors.text }}>
+          <Text style={{ ...styles.textDate, color: colors.text, fontFamily: fonts.content }}>
             {moment(datetime).format('DD/MM HH:mm')}
           </Text>
         </View>
@@ -52,7 +56,9 @@ const Matches = ({ matches, title, component = '' }) => {
     <FlatList
       style={styles.flatList}
       ListHeaderComponent={() => (
-        <Text style={{ ...styles.textList, color: colors.text }}>{title}</Text>
+        <Text style={{ ...styles.textList, color: colors.text, fontFamily: fonts.title }}>
+          {title}
+        </Text>
       )}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
       ListFooterComponent={() => component}
@@ -125,21 +131,17 @@ const styles = StyleSheet.create({
   textName: {
     textAlign: 'center',
     fontSize: 15,
-    fontFamily: 'Qatar-Bold',
   },
   textGoals: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Qatar-Bold',
   },
   textDate: {
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'Qatar-Bold',
   },
   textList: {
     textAlign: 'center',
-    fontFamily: 'Qatar-Heavy',
     fontSize: 25,
   },
 });

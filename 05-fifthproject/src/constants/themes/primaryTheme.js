@@ -8,4 +8,8 @@ export const primaryTheme = {
     border: '#400219',
     notification: '#590424',
   },
+  fonts: {
+    title: 'Qatar-Heavy',
+    content: 'Qatar-Bold',
+  },
 };

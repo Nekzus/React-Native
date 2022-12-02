@@ -11,7 +11,7 @@ import { useTheme } from '@react-navigation/native';
 const BottomTab = createBottomTabNavigator();
 
 const TabNavigator = () => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   return (
     <BottomTab.Navigator
       screenOptions={{
@@ -19,7 +19,7 @@ const TabNavigator = () => {
         tabBarLabelStyle: {
           height: 22,
           padding: 1,
-          fontFamily: 'Qatar-Bold',
+          fontFamily: fonts.content,
           fontSize: 12,
         },
         headerTitleAlign: 'center',

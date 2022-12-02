@@ -14,7 +14,7 @@ import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 
 const Groups = ({ navigation }) => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   const { landscape } = useDeviceOrientation();
   const numColumns = landscape ? 4 : 2;
   const [groups, setGroups] = useState([]);
@@ -33,7 +33,9 @@ const Groups = ({ navigation }) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Equipos-Paises', { letter: item.letter })}>
           <View style={{ ...styles.button, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.buttonText, color: colors.text }}>Grupo {item.letter}</Text>
+            <Text style={{ ...styles.buttonText, color: colors.text, fontFamily: fonts.content }}>
+              Grupo {item.letter}
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -65,6 +67,7 @@ const Groups = ({ navigation }) => {
               style={{
                 ...styles.textList,
                 color: colors.text,
+                fontFamily: fonts.title,
               }}>
               Grupos
             </Text>
@@ -113,7 +116,6 @@ const styles = StyleSheet.create({
     elevation: 19,
   },
   buttonText: {
-    fontFamily: 'Qatar-Bold',
     fontSize: 17,
     textTransform: 'uppercase',
     textAlign: 'center',
@@ -121,7 +123,6 @@ const styles = StyleSheet.create({
   },
   textList: {
     textAlign: 'center',
-    fontFamily: 'Qatar-Heavy',
     fontSize: 30,
     marginVertical: 10,
   },

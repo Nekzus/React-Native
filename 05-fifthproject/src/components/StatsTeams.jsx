@@ -4,8 +4,9 @@ import React from 'react';
 import { useTheme } from '@react-navigation/native';
 
 const StatsTeams = ({ stats, route }) => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   const { name, country, flag, shield } = route.params;
+
   const {
     draws,
     games_played,
@@ -21,76 +22,112 @@ const StatsTeams = ({ stats, route }) => {
       <View style={{ ...styles.header, backgroundColor: colors.card }}>
         <View style={styles.fieldTitle}>
           <Image source={{ uri: shield }} style={styles.shield} />
-          <Text style={{ ...styles.textTitle, color: colors.text }}>{name}</Text>
+          <Text style={{ ...styles.textTitle, color: colors.text, fontFamily: fonts.title }}>
+            {name}
+          </Text>
           <Image source={{ uri: flag }} style={styles.flag} />
         </View>
         <View style={styles.containerCode}>
-          <Text style={{ ...styles.textCode, color: colors.text }}>{country}</Text>
+          <Text style={{ ...styles.textCode, color: colors.text, fontFamily: fonts.content }}>
+            {country}
+          </Text>
         </View>
       </View>
       <View style={styles.content}>
         <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
           <View style={styles.containerName}>
-            <Text style={{ ...styles.textName, color: colors.text }}>Puntos</Text>
+            <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+              Puntos
+            </Text>
           </View>
           <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.textGoals, color: colors.text }}>{group_points}</Text>
+            <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+              {group_points}
+            </Text>
           </View>
         </View>
         <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
           <View style={styles.containerName}>
-            <Text style={{ ...styles.textName, color: colors.text }}>Partidos Jugados</Text>
+            <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+              Partidos Jugados
+            </Text>
           </View>
           <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.textGoals, color: colors.text }}>{games_played}</Text>
+            <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+              {games_played}
+            </Text>
           </View>
         </View>
         <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
           <View style={styles.containerName}>
-            <Text style={{ ...styles.textName, color: colors.text }}>Partidos Ganados</Text>
+            <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+              Partidos Ganados
+            </Text>
           </View>
           <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.textGoals, color: colors.text }}>{wins}</Text>
+            <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+              {wins}
+            </Text>
           </View>
         </View>
         <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
           <View style={styles.containerName}>
-            <Text style={{ ...styles.textName, color: colors.text }}>Partidos Empatados</Text>
+            <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+              Partidos Empatados
+            </Text>
           </View>
           <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.textGoals, color: colors.text }}>{draws}</Text>
+            <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+              {draws}
+            </Text>
           </View>
         </View>
         <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
           <View style={styles.containerName}>
-            <Text style={{ ...styles.textName, color: colors.text }}>Partidos Perdidos</Text>
+            <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+              Partidos Perdidos
+            </Text>
           </View>
           <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.textGoals, color: colors.text }}>{losses}</Text>
+            <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+              {losses}
+            </Text>
           </View>
         </View>
         <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
           <View style={styles.containerName}>
-            <Text style={{ ...styles.textName, color: colors.text }}>Goles Anotados</Text>
+            <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+              Goles Anotados
+            </Text>
           </View>
           <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.textGoals, color: colors.text }}>{goals_for}</Text>
+            <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+              {goals_for}
+            </Text>
           </View>
         </View>
         <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
           <View style={styles.containerName}>
-            <Text style={{ ...styles.textName, color: colors.text }}>Goles Recibidos</Text>
+            <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+              Goles Recibidos
+            </Text>
           </View>
           <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.textGoals, color: colors.text }}>{goals_against}</Text>
+            <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+              {goals_against}
+            </Text>
           </View>
         </View>
         <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
           <View style={styles.containerName}>
-            <Text style={{ ...styles.textName, color: colors.text }}>Diferencia de Goles</Text>
+            <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+              Diferencia de Goles
+            </Text>
           </View>
           <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.textGoals, color: colors.text }}>{goal_differential}</Text>
+            <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+              {goal_differential}
+            </Text>
           </View>
         </View>
       </View>
@@ -126,12 +163,10 @@ const styles = StyleSheet.create({
   },
   textTitle: {
     textAlign: 'center',
-    fontFamily: 'Qatar-Heavy',
     fontSize: 30,
   },
   textCode: {
     textAlign: 'center',
-    fontFamily: 'Qatar-Bold',
     fontSize: 20,
     padding: 5,
   },
@@ -175,7 +210,6 @@ const styles = StyleSheet.create({
   textName: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Qatar-Bold',
     marginHorizontal: 30,
   },
   containerGoals: {
@@ -190,6 +224,5 @@ const styles = StyleSheet.create({
   textGoals: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Qatar-Bold',
   },
 });

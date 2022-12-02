@@ -5,10 +5,8 @@ import { FixtureGroups } from '../../components';
 import moment from 'moment/moment';
 import { reqWorldApi } from '../../api/regWorldCup';
 import { useDeviceOrientation } from '@react-native-community/hooks';
-import { useTheme } from '@react-navigation/native';
 
 const Fixture = ({ navigation }) => {
-  const { colors } = useTheme();
   const { landscape } = useDeviceOrientation();
   const [matches, setMatches] = useState([]);
   moment.locale('es-mx');

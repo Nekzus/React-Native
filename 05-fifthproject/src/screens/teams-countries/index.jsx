@@ -14,7 +14,7 @@ import { reqWorldApi } from '../../api/regWorldCup';
 import { useTheme } from '@react-navigation/native';
 
 const TeamsCountries = ({ navigation, route }) => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   const { letter } = route.params;
   const [groups, setGroups] = useState([]);
   const [countries, setCountries] = useState([]);
@@ -49,7 +49,7 @@ const TeamsCountries = ({ navigation, route }) => {
           }>
           <View style={{ ...styles.button, backgroundColor: colors.card }}>
             <Image source={{ uri: itemCountry.flag }} style={styles.imageFlag} />
-            <Text style={{ ...styles.buttonText, color: colors.text }}>
+            <Text style={{ ...styles.buttonText, color: colors.text, fontFamily: fonts.content }}>
               {itemCountry.name} - ({item.country})
             </Text>
           </View>
@@ -70,7 +70,9 @@ const TeamsCountries = ({ navigation, route }) => {
     <View style={styles.container}>
       <FlatList
         ListHeaderComponent={() => (
-          <Text style={{ ...styles.textList, color: colors.text }}>Paises Grupo {letter}</Text>
+          <Text style={{ ...styles.textList, color: colors.text, fontFamily: fonts.title }}>
+            Paises Grupo {letter}
+          </Text>
         )}
         data={countries}
         renderItem={renderItem}
@@ -122,7 +124,6 @@ const styles = StyleSheet.create({
     elevation: 19,
   },
   buttonText: {
-    fontFamily: 'Qatar-Bold',
     fontSize: 15,
     textTransform: 'uppercase',
     textAlign: 'center',
@@ -137,7 +138,6 @@ const styles = StyleSheet.create({
   },
   textList: {
     textAlign: 'center',
-    fontFamily: 'Qatar-Heavy',
     fontSize: 25,
     marginVertical: 20,
   },

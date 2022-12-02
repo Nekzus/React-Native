@@ -7,7 +7,7 @@ import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 
 const Teams = ({ groups, title }) => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   const { landscape } = useDeviceOrientation();
   const numColumns = landscape ? 2 : 1;
   const renderItemT = ({ item }) => {
@@ -16,10 +16,14 @@ const Teams = ({ groups, title }) => {
       <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
         <View style={styles.containerName}>
           <Image source={{ uri: country.flag }} style={styles.imageFlag} />
-          <Text style={{ ...styles.textName, color: colors.text }}>{country.name}</Text>
+          <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
+            {country.name}
+          </Text>
         </View>
         <View style={{ ...styles.containerGoals, backgroundColor: colors.card }}>
-          <Text style={{ ...styles.textGoals, color: colors.text }}>{item.group_points}</Text>
+          <Text style={{ ...styles.textGoals, color: colors.text, fontFamily: fonts.content }}>
+            {item.group_points}
+          </Text>
         </View>
       </View>
     );
@@ -31,7 +35,7 @@ const Teams = ({ groups, title }) => {
     return (
       <View style={styles.card}>
         <View style={{ ...styles.header, backgroundColor: colors.card }}>
-          <Text style={styles.title}>Grupo {letter}</Text>
+          <Text style={{ ...styles.title, fontFamily: fonts.content }}>Grupo {letter}</Text>
         </View>
         <View style={{ ...styles.content, backgroundColor: colors.notification }}>
           <FlatList
@@ -57,7 +61,9 @@ const Teams = ({ groups, title }) => {
       key={landscape ? 'h' : 'v'}
       style={styles.flatList}
       ListHeaderComponent={() => (
-        <Text style={{ ...styles.textList, color: colors.text }}>{title}</Text>
+        <Text style={{ ...styles.textList, color: colors.text, fontFamily: fonts.title }}>
+          {title}
+        </Text>
       )}
       ListHeaderComponentStyle={{ alignItems: 'center', padding: 10 }}
       contentContainerStyle={{
@@ -106,7 +112,6 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 20,
   },
   title: {
-    fontFamily: 'Qatar-Bold',
     fontSize: 20,
     color: 'white',
     textAlign: 'center',
@@ -144,7 +149,6 @@ const styles = StyleSheet.create({
   textName: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Qatar-Bold',
   },
   containerGoals: {
     flex: 1,
@@ -158,7 +162,6 @@ const styles = StyleSheet.create({
   textGoals: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Qatar-Bold',
   },
   content: {
     flex: 4,
@@ -168,14 +171,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 5,
   },
-  conText: {
-    fontFamily: 'Lato-Regular',
-    fontSize: 17,
-    textAlign: 'center',
-  },
   textList: {
     textAlign: 'center',
-    fontFamily: 'Qatar-Heavy',
     fontSize: 25,
   },
 });

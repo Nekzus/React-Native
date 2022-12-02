@@ -7,7 +7,7 @@ import { useTheme } from '@react-navigation/native';
 const Stack = createNativeStackNavigator();
 
 const MatchesNavigator = () => {
-  const { colors } = useTheme();
+  const { colors, fonts } = useTheme();
   return (
     <Stack.Navigator
       initialRouteName="Historial-Partidos"
@@ -18,7 +18,7 @@ const MatchesNavigator = () => {
           backgroundColor: colors.card,
         },
         headerTitleStyle: {
-          fontFamily: 'Qatar-Bold',
+          fontFamily: fonts.title,
         },
         headerTitleAlign: 'center',
       }}>
