@@ -10,3 +10,47 @@ export const positionTeams = (teams) => {
   );
   return teams;
 };
+
+export const positionFixture = (matches) => {
+  matches.map((match, index) => {
+    switch (match.datetime) {
+      case '2022-12-04T15:00:00Z':
+        match.index = 4;
+        matches = [...matches, match];
+        break;
+      case '2022-12-04T19:00:00Z':
+        match.index = 5;
+        matches = [...matches, match];
+        break;
+      case '2022-12-05T15:00:00Z':
+        match.index = 2;
+        matches = [...matches, match];
+        break;
+      case '2022-12-05T19:00:00Z':
+        match.index = 3;
+        matches = [...matches, match];
+        break;
+      case '2022-12-09T19:00:00Z':
+        match.index = 0;
+        matches = [...matches, match];
+        break;
+      case '2022-12-09T15:00:00Z':
+        match.index = 1;
+        matches = [...matches, match];
+        break;
+      case '2022-12-10T19:00:00Z':
+        match.index = 2;
+        matches = [...matches, match];
+        break;
+      case '2022-12-10T15:00:00Z':
+        match.index = 3;
+        matches = [...matches, match];
+        break;
+      default:
+        match.index = index++;
+        matches = [...matches, match];
+        break;
+    }
+  });
+  return matches;
+};

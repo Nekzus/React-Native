@@ -2,13 +2,17 @@ import { ActivityIndicator, Image, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
+import { positionFixture } from '../helpers/position-teams';
 import { useTheme } from '@react-navigation/native';
 
 const FixtureGroups = ({ data, text }) => {
   const { colors } = useTheme();
   const matches = data.filter((match) => match.stage_name === text);
+  positionFixture(matches);
+  matches.sort((a, b) => (a.index > b.index ? 1 : a.index < b.index ? -1 : 0));
 
   const renderItem = (item) => {
+    const { home_team, away_team } = item;
     const homeCountry = countriesValidate(item.home_team_country);
     const awayCountry = countriesValidate(item.away_team_country);
 
@@ -22,7 +26,9 @@ const FixtureGroups = ({ data, text }) => {
         }}>
         <View style={styles.shieldsContainer}>
           <View style={styles.shieldImage}>
-            <Text style={{ ...styles.textShield, color: colors.text }}>{homeCountry.name}</Text>
+            <Text style={{ ...styles.textShield, color: colors.text }}>
+              {homeCountry.name ? homeCountry.name : home_team.country}
+            </Text>
             <Image
               source={
                 homeCountry.shield
@@ -33,7 +39,9 @@ const FixtureGroups = ({ data, text }) => {
             />
           </View>
           <View style={styles.shieldImage}>
-            <Text style={{ ...styles.textShield, color: colors.text }}>{awayCountry.name}</Text>
+            <Text style={{ ...styles.textShield, color: colors.text }}>
+              {awayCountry.name ? awayCountry.name : away_team.country}
+            </Text>
             <Image
               source={
                 awayCountry.shield
@@ -45,7 +53,9 @@ const FixtureGroups = ({ data, text }) => {
           </View>
         </View>
         <View style={{ ...styles.teamsContainer, backgroundColor: colors.card }}>
-          <Text style={{ ...styles.textC, color: colors.text }}>0 - 0</Text>
+          <Text style={{ ...styles.textC, color: colors.text }}>
+            {home_team.goals} - {away_team.goals}
+          </Text>
         </View>
       </View>
     );
