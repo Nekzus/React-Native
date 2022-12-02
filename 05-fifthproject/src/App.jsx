@@ -8,6 +8,8 @@ export default function App() {
     'Lato-Regular': require('../assets/fonts/Lato-Regular.ttf'),
     'Lato-Bold': require('../assets/fonts/Lato-Bold.ttf'),
     'Lato-Italic': require('../assets/fonts/Lato-Italic.ttf'),
+    'Qatar-Bold': require('../assets/fonts/Qatar-Bold.ttf'),
+    'Qatar-Heavy': require('../assets/fonts/Qatar-Heavy.ttf'),
   });
 
   if (!loaded) {

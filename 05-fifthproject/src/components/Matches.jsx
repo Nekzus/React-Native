@@ -1,12 +1,4 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
@@ -105,9 +97,9 @@ const styles = StyleSheet.create({
     elevation: 18,
   },
   containerName: {
-    flex: 5,
+    flex: 6,
     height: '100%',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   containerGoals: {
@@ -133,21 +125,21 @@ const styles = StyleSheet.create({
   textName: {
     textAlign: 'center',
     fontSize: 15,
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Qatar-Bold',
   },
   textGoals: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Bold',
   },
   textDate: {
     textAlign: 'center',
-    fontSize: 15,
-    fontFamily: 'Lato-Regular',
+    fontSize: 14,
+    fontFamily: 'Qatar-Bold',
   },
   textList: {
     textAlign: 'center',
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Heavy',
     fontSize: 25,
   },
 });

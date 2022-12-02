@@ -69,11 +69,11 @@ const styles = StyleSheet.create({
     elevation: 19,
   },
   buttonText: {
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Qatar-Bold',
     fontSize: 10,
     textTransform: 'uppercase',
     textAlign: 'center',
-    padding: 15,
+    padding: 12,
     color: 'white',
   },
 });

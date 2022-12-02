@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
   textC: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Bold',
     fontSize: 10,
     paddingHorizontal: 5,
   },
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   textShield: {
     textAlign: 'center',
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Bold',
     fontSize: 9,
     padding: 1,
   },

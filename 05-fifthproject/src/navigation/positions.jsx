@@ -17,7 +17,7 @@ const PositionsNavigator = () => {
           backgroundColor: colors.card,
         },
         headerTitleStyle: {
-          fontFamily: 'Lato-Bold',
+          fontFamily: 'Qatar-Bold',
         },
         headerTitleAlign: 'center',
       }}>

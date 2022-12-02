@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     elevation: 19,
   },
   buttonText: {
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Qatar-Bold',
     fontSize: 15,
     textTransform: 'uppercase',
     textAlign: 'center',
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   },
   textList: {
     textAlign: 'center',
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Heavy',
     fontSize: 25,
     marginVertical: 20,
   },

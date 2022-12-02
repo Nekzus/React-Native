@@ -17,6 +17,9 @@ const MatchesNavigator = () => {
         headerStyle: {
           backgroundColor: colors.card,
         },
+        headerTitleStyle: {
+          fontFamily: 'Qatar-Bold',
+        },
         headerTitleAlign: 'center',
       }}>
       <Stack.Screen

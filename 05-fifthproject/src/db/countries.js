@@ -102,7 +102,7 @@ export const countries = [
     code: 'USA',
     flag: 'https://res.cloudinary.com/dsvsl0b0b/image/upload/v1669502624/flags/byd9icbyk7meinknxkah.png',
     shield:
-      'https://res.cloudinary.com/dsvsl0b0b/image/upload/v1669772615/shields/mjtxfpld01vcmjzwplsp.png',
+      'https://res.cloudinary.com/dsvsl0b0b/image/upload/v1670000626/shields/bzos7r9pxtufhasq9wxl.png',
   },
   {
     name: 'Francia',
@@ -207,7 +207,7 @@ export const countries = [
     code: 'SUI',
     flag: 'https://res.cloudinary.com/dsvsl0b0b/image/upload/v1669506892/flags/nyjsshqcmdnqprkfsgcc.jpg',
     shield:
-      'https://res.cloudinary.com/dsvsl0b0b/image/upload/v1669774707/shields/gbsqucb3juy5remuj66i.png',
+      'https://res.cloudinary.com/dsvsl0b0b/image/upload/v1670001017/shields/ipfwpdyy5mnedk4wf459.png',
   },
   {
     name: 'Túnez',

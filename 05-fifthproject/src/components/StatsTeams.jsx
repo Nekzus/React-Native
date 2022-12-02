@@ -126,14 +126,14 @@ const styles = StyleSheet.create({
   },
   textTitle: {
     textAlign: 'center',
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Heavy',
     fontSize: 30,
   },
   textCode: {
     textAlign: 'center',
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Qatar-Bold',
     fontSize: 20,
-    padding: 10,
+    padding: 5,
   },
   fieldTitle: {
     flex: 4,
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   textName: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Qatar-Bold',
     marginHorizontal: 30,
   },
   containerGoals: {
@@ -190,6 +190,6 @@ const styles = StyleSheet.create({
   textGoals: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Bold',
   },
 });

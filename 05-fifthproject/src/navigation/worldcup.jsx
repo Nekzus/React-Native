@@ -1,11 +1,4 @@
-import {
-  CountryTeam,
-  Groups,
-  GroupsTeams,
-  MatchHistory,
-  NextMatches,
-  TeamsCountries,
-} from '../screens';
+import { CountryTeam, Groups, TeamsCountries } from '../screens';
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -17,6 +10,7 @@ const WorldcupNavigator = () => {
   const { colors } = useTheme();
   return (
     <Stack.Navigator
+      initialRouteName="Grupos"
       screenOptions={{
         presentation: 'card',
         headerBackTitle: '',
@@ -24,11 +18,10 @@ const WorldcupNavigator = () => {
           backgroundColor: colors.card,
         },
         headerTitleStyle: {
-          fontFamily: 'Lato-Bold',
+          fontFamily: 'Qatar-Bold',
         },
         headerTitleAlign: 'center',
-      }}
-      initialRouteName="Grupos">
+      }}>
       <Stack.Screen name="Grupos" component={Groups} options={{ headerShown: false }} />
       <Stack.Screen
         name="Equipos-Paises"

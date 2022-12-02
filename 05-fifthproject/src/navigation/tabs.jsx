@@ -17,11 +17,12 @@ const TabNavigator = () => {
       screenOptions={{
         headerShown: false,
         tabBarLabelStyle: {
-          height: 20,
+          height: 22,
           padding: 1,
-          fontFamily: 'Lato-Bold',
-          fontSize: 13,
+          fontFamily: 'Qatar-Bold',
+          fontSize: 12,
         },
+        headerTitleAlign: 'center',
         tabBarActiveBackgroundColor: colors.notification,
         tabBarActiveTintColor: colors.text,
       }}

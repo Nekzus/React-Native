@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 20,
   },
   title: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Bold',
     fontSize: 20,
     color: 'white',
     textAlign: 'center',
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   textName: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Qatar-Bold',
   },
   containerGoals: {
     flex: 1,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   textGoals: {
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Bold',
   },
   content: {
     flex: 4,
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   },
   textList: {
     textAlign: 'center',
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Heavy',
     fontSize: 25,
   },
 });

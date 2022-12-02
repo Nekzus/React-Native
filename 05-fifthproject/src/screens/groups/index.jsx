@@ -113,22 +113,22 @@ const styles = StyleSheet.create({
     elevation: 19,
   },
   buttonText: {
-    fontFamily: 'Lato-Regular',
-    fontSize: 18,
+    fontFamily: 'Qatar-Bold',
+    fontSize: 17,
     textTransform: 'uppercase',
     textAlign: 'center',
-    padding: 15,
+    padding: 10,
   },
   textList: {
     textAlign: 'center',
-    fontFamily: 'Lato-Bold',
+    fontFamily: 'Qatar-Heavy',
     fontSize: 30,
-    marginVertical: 20,
+    marginVertical: 10,
   },
   logoContainer: {
     flex: 1.5,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
   containerFlat: {
     flex: 2,

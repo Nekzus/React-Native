@@ -17,7 +17,7 @@ const FixtureNavigator = () => {
           backgroundColor: colors.card,
         },
         headerTitleStyle: {
-          fontFamily: 'Lato-Bold',
+          fontFamily: 'Qatar-Bold',
         },
         headerTitleAlign: 'center',
       }}>
