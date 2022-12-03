@@ -5,9 +5,9 @@ import { StatusBar } from 'react-native';
 import TabNavigator from './tabs';
 import { primaryTheme } from '../constants/themes/primaryTheme';
 
-const AppNavigator = () => {
+const AppNavigator = ({ layout }) => {
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider onLayout={layout}>
       <StatusBar backgroundColor="#400219" />
       <NavigationContainer theme={primaryTheme}>
         <TabNavigator />
