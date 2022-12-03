@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Matches } from '../../components';
-import Moment from 'moment';
 import { reqWorldApi } from '../../api/regWorldCup';
 
 const NextMatches = ({ navigation }) => {
   const [matchesTd, setMatchesTd] = useState([]);
   const [matchesTm, setMatchesTm] = useState([]);
-  Moment.locale('es-mx');
   useEffect(() => {
     chargeMatchesTd();
     chargeMatchesTm();

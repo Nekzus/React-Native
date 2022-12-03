@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { FixtureGroups } from '../../components';
-import moment from 'moment/moment';
 import { reqWorldApi } from '../../api/regWorldCup';
 
 const Fixture = ({ navigation }) => {
   const [matches, setMatches] = useState([]);
-  moment.locale('es-mx');
   useEffect(() => {
     chargeMatches();
   }, []);

@@ -2,7 +2,7 @@ import { ActivityIndicator, Image, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
-import moment from 'moment/moment';
+import moment from 'moment';
 import { positionFixture } from '../helpers/position-teams';
 import { useTheme } from '@react-navigation/native';
 

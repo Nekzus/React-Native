@@ -26,7 +26,7 @@ const TabNavigator = () => {
         tabBarActiveBackgroundColor: colors.notification,
         tabBarActiveTintColor: colors.text,
       }}
-      initialRouteName="Grupos">
+      initialRouteName="GroupsTab">
       <BottomTab.Screen
         name={'GroupsTab'}
         component={WorldcupNavigator}
@@ -52,6 +52,16 @@ const TabNavigator = () => {
         }}
       />
       <BottomTab.Screen
+        name="FixtureTab"
+        component={FixtureNavigator}
+        options={{
+          title: 'Fixture',
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name={focused ? 'trophy' : 'trophy-outline'} size={22} color={colors.text} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
         name="MatchsTab"
         component={MatchesNavigator}
         options={{
@@ -62,16 +72,6 @@ const TabNavigator = () => {
               size={22}
               color={colors.text}
             />
-          ),
-        }}
-      />
-      <BottomTab.Screen
-        name="FixtureTab"
-        component={FixtureNavigator}
-        options={{
-          title: 'Fixture',
-          tabBarIcon: ({ focused }) => (
-            <Ionicons name={focused ? 'trophy' : 'trophy-outline'} size={22} color={colors.text} />
           ),
         }}
       />

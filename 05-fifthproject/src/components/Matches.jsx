@@ -2,7 +2,7 @@ import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View } from 'reac
 
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
-import moment from 'moment/moment';
+import moment from 'moment';
 import { useTheme } from '@react-navigation/native';
 
 const Matches = ({ matches, title, component = '' }) => {

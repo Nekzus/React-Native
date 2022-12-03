@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { Matches } from '../../components';
-import Moment from 'moment';
 import { reqWorldApi } from '../../api/regWorldCup';
 import { useTheme } from '@react-navigation/native';
 
 const MatchHistory = ({ navigation }) => {
   const { colors, fonts } = useTheme();
   const [matches, setMatches] = useState([]);
-  Moment.locale('es-mx');
   useEffect(() => {
     chargeMatches();
   }, []);
