@@ -4,10 +4,8 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { FixtureGroups } from '../../components';
 import moment from 'moment/moment';
 import { reqWorldApi } from '../../api/regWorldCup';
-import { useDeviceOrientation } from '@react-native-community/hooks';
 
 const Fixture = ({ navigation }) => {
-  const { landscape } = useDeviceOrientation();
   const [matches, setMatches] = useState([]);
   moment.locale('es-mx');
   useEffect(() => {
@@ -19,21 +17,23 @@ const Fixture = ({ navigation }) => {
     setMatches(data);
   };
   return (
-    <ScrollView horizontal={landscape ? false : true}>
-      <View style={styles.container}>
-        <View style={styles.round16}>
-          <FixtureGroups data={matches} text={'Round of 16'} />
+    <ScrollView>
+      <ScrollView horizontal>
+        <View style={styles.container}>
+          <View style={styles.round16}>
+            <FixtureGroups data={matches} text={'Round of 16'} />
+          </View>
+          <View style={styles.round16}>
+            <FixtureGroups data={matches} text={'Quarter-final'} />
+          </View>
+          <View style={styles.round16}>
+            <FixtureGroups data={matches} text={'Semi-final'} />
+          </View>
+          <View style={styles.round16}>
+            <FixtureGroups data={matches} text={'Final'} />
+          </View>
         </View>
-        <View style={styles.round16}>
-          <FixtureGroups data={matches} text={'Quarter-final'} />
-        </View>
-        <View style={styles.round16}>
-          <FixtureGroups data={matches} text={'Semi-final'} />
-        </View>
-        <View style={styles.round16}>
-          <FixtureGroups data={matches} text={'Final'} />
-        </View>
-      </View>
+      </ScrollView>
     </ScrollView>
   );
 };

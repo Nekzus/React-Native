@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "fourthproject",
-    "slug": "fourthproject",
+    "name": "fifthproject",
+    "slug": "fifthproject",
     "version": "1.0.0",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#8C0B3B"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
