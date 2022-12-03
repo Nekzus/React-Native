@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
-import { reqWorldApi } from '../../api/regWorldCup';
+import { firstRound } from '../../db/fasegrupos';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 
@@ -22,9 +22,8 @@ const Groups = ({ navigation }) => {
     chargeGroups();
   }, []);
 
-  const chargeGroups = async () => {
-    const resp = await reqWorldApi.get('/teams');
-    setGroups(resp.data.groups);
+  const chargeGroups = () => {
+    setGroups(firstRound);
   };
 
   const renderItem = ({ item }) => {

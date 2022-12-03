@@ -10,7 +10,8 @@ import {
 import React, { useEffect, useState } from 'react';
 
 import { countriesValidate } from '../../helpers/middleware-countries';
-import { reqWorldApi } from '../../api/regWorldCup';
+import { firstRound } from '../../db/fasegrupos';
+// import { reqWorldApi } from '../../api/regWorldCup';
 import { useTheme } from '@react-navigation/native';
 
 const TeamsCountries = ({ navigation, route }) => {
@@ -23,8 +24,9 @@ const TeamsCountries = ({ navigation, route }) => {
   }, []);
 
   const chargeGroups = async () => {
-    const resp = await reqWorldApi.get('/teams');
-    setGroups(resp.data.groups);
+    // const resp = await reqWorldApi.get('/teams');
+    // setGroups(resp.data.groups);
+    setGroups(firstRound);
   };
 
   useEffect(() => {

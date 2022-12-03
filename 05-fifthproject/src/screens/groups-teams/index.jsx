@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Teams } from '../../components';
-import { reqWorldApi } from '../../api/regWorldCup';
+import { firstRound } from '../../db/fasegrupos';
+
+// import { reqWorldApi } from '../../api/regWorldCup';
 
 const GroupsTeams = ({ navigation }) => {
   const [groups, setGroups] = useState([]);
@@ -10,9 +12,10 @@ const GroupsTeams = ({ navigation }) => {
     chargeGroups();
   }, []);
 
-  const chargeGroups = async () => {
-    const resp = await reqWorldApi.get('/teams');
-    setGroups(resp.data.groups);
+  const chargeGroups = () => {
+    // const resp = await reqWorldApi.get('/teams'); // Server omitted
+    // setGroups(resp.data.groups);
+    setGroups(firstRound);
   };
 
   return (
