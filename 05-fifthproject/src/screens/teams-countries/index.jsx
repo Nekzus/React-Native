@@ -93,6 +93,7 @@ export default TeamsCountries;
 
 const styles = StyleSheet.create({
   containerLoader: {
+    flexGrow: 1,
     justifyContent: 'center',
   },
   flatList: {
@@ -109,9 +110,8 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    width: 250,
+    width: 300,
     alignItems: 'center',
-    backgroundColor: '#400219',
     borderRadius: 50,
     shadowColor: '#000',
     shadowOffset: {

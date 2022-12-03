@@ -1,11 +1,10 @@
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useCallback, useEffect, useState } from 'react';
 
 import AppNavigator from './navigation';
-import { useFonts } from 'expo-font';
+import { reqWorldApi } from './api/regWorldCup';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,7 +22,7 @@ const App = () => {
     const prepare = async () => {
       try {
         await fetchFonts();
-        await new Promise((resolve) => setTimeout(resolve, 5000));
+        await new Promise((resolve) => setTimeout(resolve, 3000));
       } catch (error) {
         console.warn(error);
       } finally {

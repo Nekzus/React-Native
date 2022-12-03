@@ -17,6 +17,15 @@ const StatsTeams = ({ stats, route }) => {
     losses,
     wins,
   } = stats;
+
+  if (!stats) {
+    return (
+      <View style={styles.containerLoader}>
+        <ActivityIndicator color="white" size="large" />
+      </View>
+    );
+  }
+
   return (
     <View style={styles.card}>
       <View style={{ ...styles.header, backgroundColor: colors.card }}>
@@ -138,6 +147,10 @@ const StatsTeams = ({ stats, route }) => {
 export default StatsTeams;
 
 const styles = StyleSheet.create({
+  containerLoader: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
   card: {
     flex: 1,
   },

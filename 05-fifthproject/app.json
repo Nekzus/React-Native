@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "fifthproject",
-    "slug": "fifthproject",
+    "name": "Qatar-2022",
+    "slug": "Qatar-2022",
     "version": "1.0.0",
     "platforms": [
       "ios",
@@ -10,7 +10,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#8C0B3B"
     },
@@ -22,7 +22,12 @@
       "assets/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#8C0B3B"
+      }
     },
     "android": {
       "adaptiveIcon": {

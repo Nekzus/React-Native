@@ -92,6 +92,7 @@ export default Groups;
 
 const styles = StyleSheet.create({
   containerLoader: {
+    flexGrow: 1,
     justifyContent: 'center',
   },
   container: {
