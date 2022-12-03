@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
   containerDate: {
     flex: 3,
     height: '100%',
+    alignItems: 'center',
     justifyContent: 'center',
     borderStartWidth: 2,
     borderBottomRightRadius: 15,
@@ -139,6 +140,7 @@ const styles = StyleSheet.create({
   textDate: {
     textAlign: 'center',
     fontSize: 14,
+    paddingHorizontal: 5,
   },
   textList: {
     textAlign: 'center',

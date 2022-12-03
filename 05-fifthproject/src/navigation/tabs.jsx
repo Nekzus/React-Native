@@ -2,6 +2,7 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import FixtureNavigator from './fixture';
 import MatchesNavigator from './matches';
+import NextNavigator from './next';
 import PositionsNavigator from './positions';
 import React from 'react';
 import WorldcupNavigator from './worldcup';
@@ -62,10 +63,24 @@ const TabNavigator = () => {
         }}
       />
       <BottomTab.Screen
+        name="NextMatchsTab"
+        component={NextNavigator}
+        options={{
+          title: 'Próximos',
+          tabBarIcon: ({ focused }) => (
+            <MaterialCommunityIcons
+              name={focused ? 'page-next' : 'page-next-outline'}
+              size={22}
+              color={colors.text}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
         name="MatchsTab"
         component={MatchesNavigator}
         options={{
-          title: 'Partidos',
+          title: 'Historial',
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? 'football' : 'football-outline'}
