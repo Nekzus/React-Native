@@ -6,23 +6,25 @@ import {
   Text,
   TouchableOpacity,
   View,
+  useWindowDimensions,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 import { countriesValidate } from '../../helpers/middleware-countries';
 import { firstRound } from '../../db/fasegrupos';
+import { scaleScreen } from '../../helpers/position-teams';
 // import { reqWorldApi } from '../../api/regWorldCup';
 import { useTheme } from '@react-navigation/native';
 
 const TeamsCountries = ({ navigation, route }) => {
   const { colors, fonts } = useTheme();
+  const { width } = useWindowDimensions();
   const { letter } = route.params;
   const [groups, setGroups] = useState([]);
   const [countries, setCountries] = useState([]);
   useEffect(() => {
     chargeGroups();
   }, []);
-
   const chargeGroups = async () => {
     // const resp = await reqWorldApi.get('/teams');
     // setGroups(resp.data.groups);
@@ -49,9 +51,15 @@ const TeamsCountries = ({ navigation, route }) => {
               shield: itemCountry.shield,
             })
           }>
-          <View style={{ ...styles.button, backgroundColor: colors.card }}>
+          <View style={{ ...styles.button, backgroundColor: colors.card, width: width * 0.75 }}>
             <Image source={{ uri: itemCountry.flag }} style={styles.imageFlag} />
-            <Text style={{ ...styles.buttonText, color: colors.text, fontFamily: fonts.content }}>
+            <Text
+              style={{
+                ...styles.buttonText,
+                color: colors.text,
+                fontFamily: fonts.content,
+                fontSize: width >= 360 ? 15 : 13,
+              }}>
               {itemCountry.name} - ({item.country})
             </Text>
           </View>
@@ -112,7 +120,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    width: 300,
+    maxWidth: 300,
     alignItems: 'center',
     borderRadius: 50,
     shadowColor: '#000',
