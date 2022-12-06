@@ -64,6 +64,7 @@ const Matches = ({ matches, title, component = '' }) => {
       ListFooterComponent={() => component}
       contentContainerStyle={{
         flexGrow: 1,
+        justifyContent: 'center',
       }}
       data={matches}
       keyExtractor={(item, index) => index.toString()}
