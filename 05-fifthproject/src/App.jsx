@@ -4,7 +4,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from 'react';
 
 import AppNavigator from './navigation';
-import { reqWorldApi } from './api/regWorldCup';
+import { Provider } from 'react-redux';
+import store from './store';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -42,7 +43,11 @@ const App = () => {
     return null;
   }
 
-  return <AppNavigator layout={onLayoutRootView} />;
+  return (
+    <Provider store={store}>
+      <AppNavigator layout={onLayoutRootView} />
+    </Provider>
+  );
 };
 
 export default App;

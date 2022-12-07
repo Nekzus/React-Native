@@ -12,8 +12,6 @@ import React, { useEffect, useState } from 'react';
 
 import { countriesValidate } from '../../helpers/middleware-countries';
 import { firstRound } from '../../db/fasegrupos';
-import { scaleScreen } from '../../helpers/position-teams';
-// import { reqWorldApi } from '../../api/regWorldCup';
 import { useTheme } from '@react-navigation/native';
 
 const TeamsCountries = ({ navigation, route }) => {
@@ -22,6 +20,7 @@ const TeamsCountries = ({ navigation, route }) => {
   const { letter } = route.params;
   const [groups, setGroups] = useState([]);
   const [countries, setCountries] = useState([]);
+
   useEffect(() => {
     chargeGroups();
   }, []);
