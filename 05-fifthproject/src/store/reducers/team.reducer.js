@@ -5,7 +5,7 @@ const { SELECT_TEAM, FILTER_TEAMS } = teamTypes;
 const initialState = {
   teams: countries,
   filteredTeams: [],
-  selected: null,
+  selected: {},
 };
 
 const teamReducer = (state = initialState, action) => {
@@ -15,10 +15,11 @@ const teamReducer = (state = initialState, action) => {
         ...state,
         selected: state.teams.find((team) => team.code === action.country),
       };
+
     case FILTER_TEAMS:
       return {
         ...state,
-        filteredTeams: state.teams.filter((team) => team.code === action.country),
+        filteredTeams: action.group,
       };
     default:
       return state;

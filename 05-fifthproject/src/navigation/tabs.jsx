@@ -4,6 +4,7 @@ import FixtureNavigator from './fixture';
 import MatchesNavigator from './matches';
 import NextNavigator from './next';
 import PositionsNavigator from './positions';
+import PruebaNavigator from './prueba';
 import React from 'react';
 import WorldcupNavigator from './worldcup';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -81,6 +82,20 @@ const TabNavigator = () => {
         component={MatchesNavigator}
         options={{
           title: 'Historial',
+          tabBarIcon: ({ focused }) => (
+            <Ionicons
+              name={focused ? 'football' : 'football-outline'}
+              size={22}
+              color={colors.text}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="PruebaTab"
+        component={PruebaNavigator}
+        options={{
+          title: 'Prueba',
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name={focused ? 'football' : 'football-outline'}

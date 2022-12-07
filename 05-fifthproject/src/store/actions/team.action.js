@@ -7,7 +7,7 @@ export const selectTeam = (country) => ({
   country,
 });
 
-export const filterTeams = (letter) => ({
+export const filterTeams = (group) => ({
   type: FILTER_TEAMS,
-  letter,
+  group,
 });

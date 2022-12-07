@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { StatsTeams } from '../../components';
 import { reqWorldApi } from '../../api/regWorldCup';
+import { useSelector } from 'react-redux';
 
 const CountryTeam = ({ route }) => {
   const { country } = route.params;
@@ -10,7 +11,6 @@ const CountryTeam = ({ route }) => {
   useEffect(() => {
     chargeCountry();
   }, []);
-
   const chargeCountry = async () => {
     const resp = await reqWorldApi.get(`/teams/${country}`);
     setStatistics(resp.data);

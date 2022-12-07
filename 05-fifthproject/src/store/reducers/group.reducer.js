@@ -4,7 +4,7 @@ import { groupTypes } from '../types';
 const { SELECT_GROUP } = groupTypes;
 const initialState = {
   groups: firstRound,
-  selected: null,
+  selected: {},
 };
 
 const groupReducer = (state = initialState, action) => {
