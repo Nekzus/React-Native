@@ -1,4 +1,4 @@
-import { countries } from '../../db/countries';
+import { countries } from '../../constants/db/countries';
 import { teamTypes } from '../types';
 
 const { SELECT_TEAM, FILTER_TEAMS } = teamTypes;

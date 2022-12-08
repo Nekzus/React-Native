@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
-import { firstRound } from '../../db/fasegrupos';
+import { firstRound } from '../../constants/db/firstRound';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 

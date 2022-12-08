@@ -1,4 +1,4 @@
-import { countries } from '../db/countries';
+import { countries } from '../constants/db/countries';
 
 export const countriesValidate = (code) => {
   const countryCode = countries.find((country) => country.code === code);

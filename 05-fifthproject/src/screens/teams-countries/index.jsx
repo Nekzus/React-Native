@@ -11,7 +11,7 @@ import {
 import React, { useEffect, useState } from 'react';
 
 import { countriesValidate } from '../../helpers/middleware-countries';
-import { firstRound } from '../../db/fasegrupos';
+import { firstRound } from '../../constants/db/firstRound';
 import { useTheme } from '@react-navigation/native';
 
 const TeamsCountries = ({ navigation, route }) => {

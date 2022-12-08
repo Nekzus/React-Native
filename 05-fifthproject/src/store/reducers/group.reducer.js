@@ -1,4 +1,4 @@
-import { firstRound } from '../../db/fasegrupos';
+import { firstRound } from '../../constants/db/firstRound';
 import { groupTypes } from '../types';
 
 const { SELECT_GROUP } = groupTypes;
