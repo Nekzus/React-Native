@@ -29,7 +29,7 @@ const PruebaRedux = () => {
     return <Button title={item.letter} onPress={() => onPress1(item)} />;
   };
   const renderItem2 = ({ item }) => {
-    const validTeam = countriesValidate(item.country);
+        const validTeam = countriesValidate(item.country);
     return <Button title={validTeam.name} onPress={() => onPress2(item)} color="red" />;
   };
   return (
