@@ -1,5 +1,4 @@
 import {
-  ActivityIndicator,
   FlatList,
   Image,
   StyleSheet,
@@ -8,48 +7,37 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { filterTeams, selectTeam } from '../../store/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { LoaderList } from '../../components';
 import { countriesValidate } from '../../helpers/middleware-countries';
-import { firstRound } from '../../constants/db/firstRound';
 import { useTheme } from '@react-navigation/native';
 
 const TeamsCountries = ({ navigation, route }) => {
+  const dispatch = useDispatch();
+  const group = useSelector((state) => state.group.selected);
+  const teams = useSelector((state) => state.team.filteredTeams);
   const { colors, fonts } = useTheme();
   const { width } = useWindowDimensions();
   const { letter } = route.params;
-  const [groups, setGroups] = useState([]);
-  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    chargeGroups();
-  }, []);
-  const chargeGroups = async () => {
-    // const resp = await reqWorldApi.get('/teams');
-    // setGroups(resp.data.groups);
-    setGroups(firstRound);
+    dispatch(filterTeams(group.teams));
+  }, [group]);
+
+  const onSelected = (item) => {
+    const itemCountry = countriesValidate(item.country);
+    dispatch(selectTeam(item.country));
+    navigation.navigate('Estadisticas-Pais', { name: itemCountry.name });
   };
-
-  useEffect(() => {
-    if (groups.length > 0) {
-      const { teams } = groups.find((group) => group.letter === letter);
-      setCountries(teams);
-    }
-  }, [groups]);
 
   const renderItem = ({ item }) => {
     const itemCountry = countriesValidate(item.country);
     return (
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Estadisticas-Pais', {
-              name: itemCountry.name,
-              country: item.country,
-              flag: itemCountry.flag,
-              shield: itemCountry.shield,
-            })
-          }>
+        <TouchableOpacity onPress={() => onSelected(item)}>
           <View style={{ ...styles.button, backgroundColor: colors.card, width: width * 0.75 }}>
             <Image source={{ uri: itemCountry.flag }} style={styles.imageFlag} />
             <Text
@@ -68,11 +56,7 @@ const TeamsCountries = ({ navigation, route }) => {
   };
 
   const loaderList = () => {
-    return (
-      <View style={styles.containerLoader}>
-        <ActivityIndicator color="white" size="large" />
-      </View>
-    );
+    return <LoaderList />;
   };
 
   return (
@@ -83,7 +67,7 @@ const TeamsCountries = ({ navigation, route }) => {
             Paises Grupo {letter}
           </Text>
         )}
-        data={countries}
+        data={teams}
         renderItem={renderItem}
         style={styles.flatList}
         keyExtractor={(item, index) => index.toString()}
@@ -101,10 +85,6 @@ const TeamsCountries = ({ navigation, route }) => {
 export default TeamsCountries;
 
 const styles = StyleSheet.create({
-  containerLoader: {
-    flexGrow: 1,
-    justifyContent: 'center',
-  },
   flatList: {
     width: '100%',
     height: '100%',

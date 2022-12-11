@@ -1,53 +1,28 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { GroupItem, LoaderList } from '../../components';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { firstRound } from '../../constants/db/firstRound';
+import React from 'react';
+import { selectGroup } from '../../store/actions';
 import { useDeviceOrientation } from '@react-native-community/hooks';
 import { useTheme } from '@react-navigation/native';
 
 const Groups = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const groups = useSelector((state) => state.group.groups);
+
   const { colors, fonts } = useTheme();
   const { landscape } = useDeviceOrientation();
   const numColumns = landscape ? 4 : 2;
-  const [groups, setGroups] = useState([]);
-  useEffect(() => {
-    chargeGroups();
-  }, []);
 
-  const chargeGroups = () => {
-    setGroups(firstRound);
+  const onSelected = (item) => {
+    dispatch(selectGroup(item.letter));
+    navigation.navigate('Equipos-Paises', { letter: item.letter });
   };
 
-  const renderItem = ({ item }) => {
-    return (
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Equipos-Paises', { letter: item.letter })}>
-          <View style={{ ...styles.button, backgroundColor: colors.card }}>
-            <Text style={{ ...styles.buttonText, color: colors.text, fontFamily: fonts.content }}>
-              Grupo {item.letter}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-  };
+  const renderItem = ({ item }) => <GroupItem item={item} onSelected={onSelected} />;
 
-  const loaderList = () => {
-    return (
-      <View style={styles.containerLoader}>
-        <ActivityIndicator color="white" size="large" />
-      </View>
-    );
-  };
+  const loaderList = () => <LoaderList />;
 
   return (
     <View style={styles.container}>
@@ -90,36 +65,8 @@ const Groups = ({ navigation }) => {
 export default Groups;
 
 const styles = StyleSheet.create({
-  containerLoader: {
-    flexGrow: 1,
-    justifyContent: 'center',
-  },
   container: {
     flex: 1,
-  },
-  buttonContainer: {
-    marginVertical: 10,
-    marginHorizontal: 10,
-  },
-  button: {
-    width: 150,
-    alignItems: 'center',
-    borderRadius: 50,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 9,
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 12.35,
-
-    elevation: 19,
-  },
-  buttonText: {
-    fontSize: 17,
-    textTransform: 'uppercase',
-    textAlign: 'center',
-    padding: 10,
   },
   textList: {
     textAlign: 'center',

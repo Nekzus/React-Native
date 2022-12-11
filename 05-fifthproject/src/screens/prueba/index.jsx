@@ -7,34 +7,34 @@ import { countriesValidate } from '../../helpers/middleware-countries';
 import { selectGroup } from '../../store/actions';
 
 const PruebaRedux = () => {
-  const groups = useSelector((state) => state.group.groups);
-  const group = useSelector((state) => state.group.selected);
-  const teams = useSelector((state) => state.team.filteredTeams);
-  const team = useSelector((state) => state.team.selected);
+  // const groups = useSelector((state) => state.group.groups);
+  // const group = useSelector((state) => state.group.selected);
+  // const teams = useSelector((state) => state.team.filteredTeams);
+  // const team = useSelector((state) => state.team.selected);
 
-  const dispatch = useDispatch();
-  const onPress1 = (item) => {
-    dispatch(selectGroup(item.letter));
-  };
-  const onPress2 = (item) => {
-    dispatch(selectTeam(item.country));
-  };
+  // const dispatch = useDispatch();
+  // const onPress1 = (item) => {
+  //   dispatch(selectGroup(item.letter));
+  // };
+  // const onPress2 = (item) => {
+  //   dispatch(selectTeam(item.country));
+  // };
 
-  useEffect(() => {
-    dispatch(filterTeams(group.teams));
-  }, [group]);
+  // useEffect(() => {
+  //   dispatch(filterTeams(group.teams));
+  // }, [group]);
 
-  console.log({ team });
-  const renderItem1 = ({ item }) => {
-    return <Button title={item.letter} onPress={() => onPress1(item)} />;
-  };
-  const renderItem2 = ({ item }) => {
-        const validTeam = countriesValidate(item.country);
-    return <Button title={validTeam.name} onPress={() => onPress2(item)} color="red" />;
-  };
+  // console.log({ team });
+  // const renderItem1 = ({ item }) => {
+  //   return <Button title={item.letter} onPress={() => onPress1(item)} />;
+  // };
+  // const renderItem2 = ({ item }) => {
+  //   const validTeam = countriesValidate(item.country);
+  //   return <Button title={validTeam.name} onPress={() => onPress2(item)} color="red" />;
+  // };
   return (
     <View>
-      <FlatList
+      {/* <FlatList
         data={groups}
         renderItem={renderItem1}
         keyExtractor={(item, index) => index.toString()}
@@ -43,7 +43,7 @@ const PruebaRedux = () => {
         data={teams}
         renderItem={renderItem2}
         keyExtractor={(item, index) => index.toString()}
-      />
+      /> */}
     </View>
   );
 };

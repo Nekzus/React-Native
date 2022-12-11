@@ -1,5 +1,6 @@
 import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
+import LoaderList from './LoaderList';
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
 import { positionTeams } from '../helpers/position-teams';
@@ -50,11 +51,7 @@ const Teams = ({ groups, title }) => {
   };
 
   const loaderList = () => {
-    return (
-      <View style={styles.containerLoader}>
-        <ActivityIndicator color="white" size="large" />
-      </View>
-    );
+    return <LoaderList />;
   };
   return (
     <FlatList
@@ -83,10 +80,6 @@ const Teams = ({ groups, title }) => {
 export default Teams;
 
 const styles = StyleSheet.create({
-  containerLoader: {
-    flexGrow: 1,
-    justifyContent: 'center',
-  },
   card: {
     width: 310,
     height: 210,

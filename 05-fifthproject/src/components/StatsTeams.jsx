@@ -6,7 +6,7 @@ import { useTheme } from '@react-navigation/native';
 const StatsTeams = ({ stats, route }) => {
   const { colors, fonts } = useTheme();
   const { width } = useWindowDimensions();
-  const { name, country, flag, shield } = route.params;
+  const { name, code, flag, shield } = route;
 
   const {
     draws,
@@ -39,7 +39,7 @@ const StatsTeams = ({ stats, route }) => {
         </View>
         <View style={styles.containerCode}>
           <Text style={{ ...styles.textCode, color: colors.text, fontFamily: fonts.content }}>
-            {country}
+            {code}
           </Text>
         </View>
       </View>
