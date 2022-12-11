@@ -1,11 +1,12 @@
 import { countries } from '../../constants/db/countries';
 import { teamTypes } from '../types';
 
-const { SELECT_TEAM, FILTER_TEAMS } = teamTypes;
+const { SELECT_TEAM, FILTER_TEAMS, STATS_TEAM } = teamTypes;
 const initialState = {
   teams: countries,
   filteredTeams: [],
   selected: {},
+  stats: [],
 };
 
 const teamReducer = (state = initialState, action) => {
@@ -20,6 +21,11 @@ const teamReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredTeams: action.group,
+      };
+    case STATS_TEAM:
+      return {
+        ...state,
+        stats: action.stats,
       };
     default:
       return state;

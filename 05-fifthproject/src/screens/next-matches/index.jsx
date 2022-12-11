@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useFocusEffect, useTheme } from '@react-navigation/native';
 
 import { Matches } from '../../components';
-import { reqWorldApi } from '../../api/regWorldCup';
-import { useTheme } from '@react-navigation/native';
+import { nextMatches } from '../../store/actions';
 
 const NextMatches = ({ navigation }) => {
   const { colors, fonts } = useTheme();
-  const [matchesTd, setMatchesTd] = useState([]);
-  const [matchesTm, setMatchesTm] = useState([]);
-  useEffect(() => {
-    chargeMatchesTd();
-    chargeMatchesTm();
-  }, []);
+  const dispatch = useDispatch();
+  const matchesTd = useSelector((state) => state.match.today);
+  const matchesTm = useSelector((state) => state.match.tomorrow);
 
-  const chargeMatchesTd = async () => {
-    const { data } = await reqWorldApi.get('/matches/today');
-    setMatchesTd(data);
-  };
-  const chargeMatchesTm = async () => {
-    const { data } = await reqWorldApi.get('/matches/tomorrow');
-    setMatchesTm(data);
-  };
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(nextMatches());
+    }, [dispatch])
+  );
 
   return (
     <View style={styles.screen}>

@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import React from 'react';
 import { Teams } from '../../components';
-import { firstRound } from '../../constants/db/firstRound';
-
-// import { reqWorldApi } from '../../api/regWorldCup';
+import { useSelector } from 'react-redux';
 
 const GroupsTeams = ({ navigation }) => {
-  const [groups, setGroups] = useState([]);
-  useEffect(() => {
-    chargeGroups();
-  }, []);
-
-  const chargeGroups = () => {
-    // const resp = await reqWorldApi.get('/teams'); // Server omitted
-    // setGroups(resp.data.groups);
-    setGroups(firstRound);
-  };
-
+  const groups = useSelector((state) => state.group.groups);
   return (
     <View style={styles.screen}>
       <View style={styles.container}>

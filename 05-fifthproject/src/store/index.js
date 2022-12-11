@@ -1,11 +1,12 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import { groupReducer, teamReducer } from './reducers';
+import { groupReducer, matchReducer, teamReducer } from './reducers';
 
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
   group: groupReducer,
   team: teamReducer,
+  match: matchReducer,
 });
 
 //TODO: Desarrollo

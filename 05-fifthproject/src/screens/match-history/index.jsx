@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Matches } from '../../components';
-import { reqWorldApi } from '../../api/regWorldCup';
-import { useTheme } from '@react-navigation/native';
+import { getMatches } from '../../store/actions';
+import { useFocusEffect } from '@react-navigation/native';
 
 const MatchHistory = ({ navigation }) => {
-  const [matches, setMatches] = useState([]);
-  useEffect(() => {
-    chargeMatches();
-  }, []);
+  const dispatch = useDispatch();
+  const matches = useSelector((state) => state.match.matches);
 
-  const chargeMatches = async () => {
-    const { data } = await reqWorldApi.get('/matches');
-    setMatches(data);
-  };
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(getMatches());
+    }, [dispatch])
+  );
 
   return (
     <View style={styles.screen}>

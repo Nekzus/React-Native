@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ScrollView } from 'react-native';
 import { StatsTeams } from '../../components';
-import { reqWorldApi } from '../../api/regWorldCup';
-import { useSelector } from 'react-redux';
+import { statsTeam } from '../../store/actions';
+import { useFocusEffect } from '@react-navigation/native';
 
 const CountryTeam = ({ navigation }) => {
+  const dispatch = useDispatch();
   const team = useSelector((state) => state.team.selected);
-  const [statistics, setStatistics] = useState([]);
-  useEffect(() => {
-    chargeCountry();
-  }, []);
-  const chargeCountry = async () => {
-    const resp = await reqWorldApi.get(`/teams/${team.code}`);
-    setStatistics(resp.data);
-  };
+  const statistics = useSelector((state) => state.team.stats);
+
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(statsTeam(team.code));
+    }, [dispatch])
+  );
 
   if (statistics.length === 0) return;
 
