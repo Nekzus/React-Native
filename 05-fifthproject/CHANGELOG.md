@@ -1,5 +1,8 @@
 ## 1.0.0 (2022-12-12)
 
+- fix(Clear): :wastebasket: Purge and clear code ([2a6e1d6](https://github.com/Nekzus/React-Native/commit/2a6e1d6))
+- fix(Render): :bug: Fix bug render matches flags teams conditional ([f1b8117](https://github.com/Nekzus/React-Native/commit/f1b8117))
+- fix(Render): :bug: Fix next matches today and tomorrow ([6a56092](https://github.com/Nekzus/React-Native/commit/6a56092))
 - feat(Redux): :sparkles: Implement redux ([18b0396](https://github.com/Nekzus/React-Native/commit/18b0396))
 - test(Devtools): :bulb: Code adaptation for tests with status debug. ([af1b1c3](https://github.com/Nekzus/React-Native/commit/af1b1c3))
 - test(Devtools): :rocket: ([b414f4e](https://github.com/Nekzus/React-Native/commit/b414f4e))

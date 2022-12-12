@@ -11,6 +11,7 @@ const NextMatches = ({ navigation }) => {
   const dispatch = useDispatch();
   const matchesTd = useSelector((state) => state.match.today);
   const matchesTm = useSelector((state) => state.match.tomorrow);
+  const loading = useSelector((state) => state.match.loading);
 
   useFocusEffect(
     useCallback(() => {
@@ -32,9 +33,11 @@ const NextMatches = ({ navigation }) => {
         ) : matchesTm.length > 0 ? (
           <Matches matches={matchesTm} title={'Partidos de Mañana'} />
         ) : (
-          <Text style={{ ...styles.textList, color: colors.text, fontFamily: fonts.content }}>
-            Sin Partidos Proximos
-          </Text>
+          loading && (
+            <Text style={{ ...styles.textList, color: colors.text, fontFamily: fonts.content }}>
+              Sin Partidos Proximos
+            </Text>
+          )
         )}
       </View>
     </View>

@@ -1,10 +1,11 @@
 import { firstRound } from '../../constants/db/firstRound';
 import { groupTypes } from '../types';
 
-const { SELECT_GROUP } = groupTypes;
+const { SELECT_GROUP, APP_READY } = groupTypes;
 const initialState = {
   groups: firstRound,
   selected: {},
+  appReady: false,
 };
 
 const groupReducer = (state = initialState, action) => {
@@ -15,6 +16,11 @@ const groupReducer = (state = initialState, action) => {
       return {
         ...state,
         selected: state.groups[indexGroup],
+      };
+    case APP_READY:
+      return {
+        ...state,
+        appReady: action.appReady,
       };
     default:
       return state;

@@ -5,6 +5,7 @@ const initialState = {
   matches: [],
   today: [],
   tomorrow: [],
+  loading: false,
 };
 
 const matchReducer = (state = initialState, action) => {
@@ -19,6 +20,7 @@ const matchReducer = (state = initialState, action) => {
         ...state,
         today: action.today,
         tomorrow: action.tomorrow,
+        loading: action.loading,
       };
     default:
       return state;

@@ -22,7 +22,8 @@ export const nextMatches = () => {
       const respTm = await reqWorldApi.get('/matches/tomorrow');
       const today = respTd.data;
       const tomorrow = respTm.data;
-      dispatch({ type: NEXT_MATCHES, today, tomorrow });
+      const loading = today.length || tomorrow.length > 0 ? false : true;
+      dispatch({ type: NEXT_MATCHES, today, tomorrow, loading });
     } catch (error) {
       console.log(error);
     }
