@@ -1,9 +1,9 @@
+import { LoaderList, Matches } from '../../components';
 import React, { useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFocusEffect, useTheme } from '@react-navigation/native';
 
-import { Matches } from '../../components';
 import { nextMatches } from '../../store/actions';
 
 const NextMatches = ({ navigation }) => {
@@ -18,6 +18,8 @@ const NextMatches = ({ navigation }) => {
       dispatch(nextMatches());
     }, [dispatch])
   );
+
+  if (loading) return <LoaderList />;
 
   return (
     <View style={styles.screen}>

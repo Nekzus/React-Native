@@ -1,20 +1,23 @@
+import { FixtureGroups, LoaderList } from '../../components';
 import React, { useCallback } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { FixtureGroups } from '../../components';
 import { getMatches } from '../../store/actions';
 import { useFocusEffect } from '@react-navigation/native';
 
 const Fixture = ({ navigation }) => {
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.match.matches);
+  const loading = useSelector((state) => state.match.loading);
 
   useFocusEffect(
     useCallback(() => {
       dispatch(getMatches());
     }, [dispatch])
   );
+
+  if (loading) return <LoaderList />;
 
   return (
     <ScrollView>

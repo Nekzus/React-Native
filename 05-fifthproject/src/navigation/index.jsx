@@ -28,7 +28,7 @@ const AppNavigator = () => {
     const prepare = async () => {
       try {
         await fetchFonts();
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 4000));
       } catch (error) {
         console.warn(error);
       } finally {

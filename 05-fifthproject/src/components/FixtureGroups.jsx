@@ -1,4 +1,4 @@
-import { ActivityIndicator, Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
@@ -67,13 +67,6 @@ const FixtureGroups = ({ data, text }) => {
     );
   };
 
-  if (matches.length < 0) {
-    return (
-      <View style={styles.containerLoader}>
-        <ActivityIndicator color="white" size="large" />
-      </View>
-    );
-  }
   return <>{matches.map(renderItem)}</>;
 };
 
@@ -87,10 +80,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
-  },
-  containerLoader: {
-    flexGrow: 1,
-    justifyContent: 'center',
   },
   container: {
     flexDirection: 'row',
