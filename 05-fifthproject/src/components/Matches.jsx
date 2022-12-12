@@ -1,5 +1,6 @@
 import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
+import LoaderList from './LoaderList';
 import React from 'react';
 import { countriesValidate } from '../helpers/middleware-countries';
 import moment from 'moment';
@@ -14,7 +15,7 @@ const Matches = ({ matches, title, component = '' }) => {
     return (
       <View style={{ ...styles.matchTable, backgroundColor: colors.notification }}>
         <View style={styles.containerName}>
-          <Image source={{ uri: countryH.flag }} style={styles.imageFlag} />
+          {countryH ? <Image source={{ uri: countryH.flag }} style={styles.imageFlag} /> : null}
           <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
             {!countryH.name ? 'A definir' : countryH.name}
           </Text>
@@ -30,7 +31,7 @@ const Matches = ({ matches, title, component = '' }) => {
           </Text>
         </View>
         <View style={styles.containerName}>
-          <Image source={{ uri: countryA.flag }} style={styles.imageFlag} />
+          {countryA ? <Image source={{ uri: countryA.flag }} style={styles.imageFlag} /> : null}
           <Text style={{ ...styles.textName, color: colors.text, fontFamily: fonts.content }}>
             {!countryA.name ? 'A definir' : countryA.name}
           </Text>
@@ -44,13 +45,7 @@ const Matches = ({ matches, title, component = '' }) => {
     );
   };
 
-  const loaderList = () => {
-    return (
-      <View style={styles.containerLoader}>
-        <ActivityIndicator color="white" size="large" />
-      </View>
-    );
-  };
+  const loaderList = () => <LoaderList />;
 
   return (
     <FlatList
@@ -78,10 +73,6 @@ const Matches = ({ matches, title, component = '' }) => {
 export default Matches;
 
 const styles = StyleSheet.create({
-  containerLoader: {
-    flexGrow: 1,
-    justifyContent: 'center',
-  },
   flatList: {
     width: '100%',
     maxWidth: 700,
