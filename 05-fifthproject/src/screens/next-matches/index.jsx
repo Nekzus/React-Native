@@ -22,7 +22,13 @@ const NextMatches = ({ navigation }) => {
     <View style={styles.screen}>
       <View style={styles.container}>
         {matchesTd.length > 0 ? (
-          <Matches matches={matchesTd} title={'Partidos de Hoy'} />
+          <Matches
+            matches={matchesTd}
+            title={'Partidos de Hoy'}
+            component={
+              matchesTm.length > 0 && <Matches matches={matchesTm} title={'Partidos de Mañana'} />
+            }
+          />
         ) : matchesTm.length > 0 ? (
           <Matches matches={matchesTm} title={'Partidos de Mañana'} />
         ) : (
