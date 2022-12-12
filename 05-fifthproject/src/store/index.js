@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   match: matchReducer,
 });
 
-//TODO: Desarrollo
+//TODO: Desarrollo: uso de react native debugger /redux tools
 const composeEnhancers =
   (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({

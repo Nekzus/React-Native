@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { LoaderList, TeamItem } from '../../components';
 import React, { useEffect } from 'react';
 import { filterTeams, selectTeam } from '../../store/actions';
