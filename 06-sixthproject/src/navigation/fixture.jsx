@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
-
 const FixtureNavigator = () => {
   const { colors, fonts } = useTheme();
   return (

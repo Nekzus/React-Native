@@ -8,8 +8,10 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-CHANGELOG.*
+*CHANGELOG.*
 web-build/
+
+*/constants/firebase/index.js
 
 # macOS
 .DS_Store
