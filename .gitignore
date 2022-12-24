@@ -11,7 +11,7 @@ npm-debug.*
 *CHANGELOG.*
 web-build/
 
-*/constants/firebase/index.js
+**/firebase/index.js
 
 # macOS
 .DS_Store
