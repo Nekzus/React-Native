@@ -8,6 +8,7 @@ const Stack = createNativeStackNavigator();
 
 const LocationNavigator = () => {
   const { colors, fonts } = useTheme();
+
   return (
     <Stack.Navigator
       initialRouteName="Permissions"

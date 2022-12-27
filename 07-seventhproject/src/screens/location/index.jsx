@@ -1,14 +1,20 @@
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Map } from '../../components';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { geoCodingLocation } from '../../store/slices/location';
 import { useTheme } from '@react-navigation/native';
 
 const LocationScreen = ({ navigation }) => {
+  const dispatch = useDispatch();
   const { locationStatus } = useSelector((state) => state.permissions);
-  const { coords } = useSelector((state) => state.locations);
+  const { address, coords } = useSelector((state) => state.locations);
   const { colors, fonts } = useTheme();
+
+  useEffect(() => {
+    dispatch(geoCodingLocation());
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -25,7 +31,18 @@ const LocationScreen = ({ navigation }) => {
           </Text>
         </View>
       ) : (
-        <Map location={coords} style={styles.preview} />
+        <>
+          <Map location={coords} style={styles.preview} />
+          <Text
+            style={{
+              color: colors.text,
+              fontSize: 20,
+              fontFamily: fonts.content,
+              textAlign: 'center',
+            }}>
+            {address}
+          </Text>
+        </>
       )}
     </View>
   );

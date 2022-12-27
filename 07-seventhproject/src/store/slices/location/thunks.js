@@ -1,6 +1,8 @@
 import * as Location from 'expo-location';
 
-import { coordsLocation } from './locationsSlice';
+import { addressLocation, coordsLocation } from './locationsSlice';
+
+import { URL_GEOCODING } from '../../../constants/maps';
 
 export const currentLocation = () => {
   return async (dispatch, setState) => {
@@ -14,5 +16,24 @@ export const currentLocation = () => {
     });
     const { latitude, longitude } = location.coords;
     dispatch(coordsLocation({ lat: latitude, lng: longitude }));
+  };
+};
+
+export const geoCodingLocation = () => {
+  return async (dispatch, setState) => {
+    const {
+      locations: { coords },
+    } = setState();
+    try {
+      const resp = await fetch(URL_GEOCODING(coords?.lat, coords?.lng));
+      if (!resp.ok) throw new Error('No se ha podido conectar al servicio');
+      const data = await resp.json();
+      if (!data.results) throw new Error('No se ha podido encontrar la dirección');
+      const address = data.results[0].formatted_address;
+      dispatch(addressLocation(address));
+    } catch (error) {
+      console.log({ error });
+      throw error;
+    }
   };
 };

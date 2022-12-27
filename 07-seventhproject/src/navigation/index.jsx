@@ -2,7 +2,7 @@ import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { AppState, StatusBar } from 'react-native';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LocationNavigator from './location';
