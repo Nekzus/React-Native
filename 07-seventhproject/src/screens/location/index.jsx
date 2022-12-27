@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Map } from '../../components';
@@ -14,7 +14,7 @@ const LocationScreen = ({ navigation }) => {
 
   useEffect(() => {
     dispatch(geoCodingLocation());
-  }, []);
+  }, [coords]);
 
   return (
     <View style={styles.container}>
@@ -42,6 +42,16 @@ const LocationScreen = ({ navigation }) => {
             }}>
             {address}
           </Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Maps');
+            }}>
+            <View style={{ ...styles.button, backgroundColor: colors.card }}>
+              <Text style={{ ...styles.buttonText, color: colors.text, fontFamily: fonts.title }}>
+                Seleccionar ubicación
+              </Text>
+            </View>
+          </TouchableOpacity>
         </>
       )}
     </View>
@@ -62,5 +72,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
+  },
+  button: {
+    width: 250,
+    alignItems: 'center',
+    borderRadius: 50,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+  },
+  buttonText: {
+    fontSize: 17,
+    textTransform: 'uppercase',
+    textAlign: 'center',
+    padding: 10,
   },
 });
