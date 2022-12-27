@@ -2,12 +2,13 @@ import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { AppState, StatusBar } from 'react-native';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import LocationNavigator from './location';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { checkPermissionLocation } from '../store/slices/permissions';
+import { currentLocation } from '../store/slices/location';
 import { primaryTheme } from '../constants/themes/primaryTheme';
 import { useDispatch } from 'react-redux';
 
@@ -21,6 +22,7 @@ const fetchFonts = async () => {
 };
 
 const AppNavigator = () => {
+  const [isReady, setIsReady] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +33,11 @@ const AppNavigator = () => {
     return () => {
       subs.remove();
     };
-  }, []);
+  }, [isReady]);
+
+  useEffect(() => {
+    dispatch(currentLocation());
+  }, [isReady]);
 
   useEffect(() => {
     const prepare = async () => {
@@ -40,6 +46,8 @@ const AppNavigator = () => {
         await new Promise((resolve) => setTimeout(resolve, 4000));
       } catch (error) {
         console.warn(error);
+      } finally {
+        setIsReady(true);
       }
     };
     prepare();

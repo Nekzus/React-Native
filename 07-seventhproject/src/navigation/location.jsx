@@ -25,9 +25,13 @@ const LocationNavigator = () => {
       <Stack.Screen
         name="Permissions"
         component={PermissionsScreen}
-        options={{ title: 'Permiso ubicacion' }}
+        options={{ headerShown: false }}
       />
-      <Stack.Screen name="Location" component={LocationScreen} options={{ title: 'Ubicacion' }} />
+      <Stack.Screen
+        name="Location"
+        component={LocationScreen}
+        options={{ title: 'Mi ubicación' }}
+      />
     </Stack.Navigator>
   );
 };

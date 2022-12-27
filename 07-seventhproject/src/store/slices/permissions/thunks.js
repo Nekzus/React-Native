@@ -19,7 +19,6 @@ export const askPermissionLocation = () => {
 export const checkPermissionLocation = () => {
   return async (dispatch) => {
     const { status } = await Location.getForegroundPermissionsAsync();
-    console.log({ status });
     dispatch(ckPermissionLocation(status));
   };
 };

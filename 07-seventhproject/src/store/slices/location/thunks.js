@@ -9,7 +9,8 @@ export const currentLocation = () => {
     } = setState();
     if (locationStatus !== 'granted') return;
     const location = await Location.getCurrentPositionAsync({
-      timeout: 100,
+      timeInterval: 1000,
+      distanceInterval: 50,
     });
     const { latitude, longitude } = location.coords;
     dispatch(coordsLocation({ lat: latitude, lng: longitude }));
