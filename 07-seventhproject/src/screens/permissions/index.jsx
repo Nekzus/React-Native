@@ -18,7 +18,7 @@ const PermissionsScreen = ({ navigation }) => {
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-          dispatch(currentLocation()), navigation.navigate('Location');
+          navigation.navigate('Location');
         }}>
         <View style={{ ...styles.button, backgroundColor: colors.card }}>
           <Text style={{ ...styles.buttonText, color: colors.text, fontFamily: fonts.title }}>
