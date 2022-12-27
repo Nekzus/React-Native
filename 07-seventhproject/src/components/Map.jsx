@@ -16,11 +16,6 @@ const Map = ({ children, location, style }) => {
 export default Map;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   mapImage: {
     width: '100%',
     height: '100%',

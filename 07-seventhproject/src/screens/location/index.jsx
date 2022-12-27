@@ -13,9 +13,17 @@ const LocationScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {locationStatus !== 'granted' ? (
-        <Text style={{ color: colors.text, fontSize: 18, fontFamily: fonts.content }}>
-          Location Status: {locationStatus} debe habilitar permiso de ubicacion
-        </Text>
+        <View style={styles.preview}>
+          <Text
+            style={{
+              color: colors.text,
+              fontSize: 18,
+              fontFamily: fonts.content,
+              textAlign: 'center',
+            }}>
+            Location Status: {locationStatus} debe habilitar permiso de ubicacion
+          </Text>
+        </View>
       ) : (
         <Map location={coords} style={styles.preview} />
       )}
@@ -32,11 +40,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   preview: {
-    width: '100%',
-    height: 200,
-    marginBottom: 20,
+    width: '95%',
+    height: '45%',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: 2,
   },
 });
