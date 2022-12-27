@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Matches } from '../../components';
-import { getMatches } from '../../store/actions/indexa';
+import { getMatches } from '../../store/actions';
 import { useFocusEffect } from '@react-navigation/native';
 
 const MatchHistory = ({ navigation }) => {

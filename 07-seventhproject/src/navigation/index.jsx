@@ -24,22 +24,26 @@ const AppNavigator = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const subs = AppState.addEventListener('change', (state) => {
+      if (state !== 'active') return;
+      dispatch(checkPermissionLocation());
+    });
+    return () => {
+      subs.remove();
+    };
+  }, []);
+
+  useEffect(() => {
     const prepare = async () => {
       try {
         await fetchFonts();
         await new Promise((resolve) => setTimeout(resolve, 4000));
-        AppState.addEventListener('change', (state) => {
-          if (state !== 'active') return;
-          dispatch(checkPermissionLocation());
-        });
       } catch (error) {
         console.warn(error);
       }
     };
     prepare();
   }, []);
-
-  useEffect(() => {}, []);
 
   const onLayoutRootView = useCallback(async () => {
     await SplashScreen.hideAsync();
