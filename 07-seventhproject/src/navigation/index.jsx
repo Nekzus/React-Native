@@ -1,13 +1,15 @@
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
+import { AppState, StatusBar } from 'react-native';
 import React, { useCallback, useEffect } from 'react';
 
+import LocationNavigator from './location';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { StatusBar } from 'react-native';
-import TabNavigator from './tabs';
+import { checkPermissionLocation } from '../store/slices/permissions';
 import { primaryTheme } from '../constants/themes/primaryTheme';
+import { useDispatch } from 'react-redux';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,17 +21,25 @@ const fetchFonts = async () => {
 };
 
 const AppNavigator = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const prepare = async () => {
       try {
         await fetchFonts();
         await new Promise((resolve) => setTimeout(resolve, 4000));
+        AppState.addEventListener('change', (state) => {
+          if (state !== 'active') return;
+          dispatch(checkPermissionLocation());
+        });
       } catch (error) {
         console.warn(error);
       }
     };
     prepare();
   }, []);
+
+  useEffect(() => {}, []);
 
   const onLayoutRootView = useCallback(async () => {
     await SplashScreen.hideAsync();
@@ -39,7 +49,7 @@ const AppNavigator = () => {
     <SafeAreaProvider onLayout={onLayoutRootView}>
       <StatusBar backgroundColor="#400219" />
       <NavigationContainer theme={primaryTheme}>
-        <TabNavigator />
+        <LocationNavigator />
       </NavigationContainer>
     </SafeAreaProvider>
   );
