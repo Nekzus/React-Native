@@ -15,6 +15,7 @@ const HistoryScreen = ({ navigation }) => {
         style={{
           backgroundColor: colors.notification,
           width: 465,
+          height: 25,
           marginVertical: 2,
           borderRadius: 5,
         }}>
