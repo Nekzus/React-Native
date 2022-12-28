@@ -1,22 +1,15 @@
-import MapView, { Marker } from 'react-native-maps';
 import React, { useLayoutEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { coordsLocation, historyLocations } from '../../store/slices/location/locationsSlice';
+import { fetchAddress, insertAddress } from '../../db';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { coordsLocation } from '../../store/slices/location/locationsSlice';
+import { MapsViews } from '../../components';
+import { useDispatch } from 'react-redux';
 
 const MapsScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const [selectedLocation, setSelectedLocation] = useState();
-  const { coords } = useSelector((state) => state.locations);
-  const initialRegion = {
-    latitude: coords.lat,
-    longitude: coords.lng,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  };
-
   const onHandlePicklocation = (e) => {
     setSelectedLocation({
       lat: e.nativeEvent.coordinate.latitude,
@@ -24,9 +17,11 @@ const MapsScreen = ({ navigation }) => {
     });
   };
 
-  const onHandleSaveLocation = () => {
+  const onHandleSaveLocation = async () => {
     if (!selectedLocation) return;
     dispatch(coordsLocation(selectedLocation));
+    const { lat, lng } = selectedLocation;
+    await insertAddress(lat, lng);
     navigation.navigate('Location');
   };
 
@@ -41,17 +36,7 @@ const MapsScreen = ({ navigation }) => {
   }, [onHandlePicklocation]);
   return (
     <View style={styles.container}>
-      <MapView initialRegion={initialRegion} style={styles.mapView} onPress={onHandlePicklocation}>
-        {selectedLocation && (
-          <Marker
-            title="Lugar seleccionado"
-            coordinate={{
-              latitude: selectedLocation.lat,
-              longitude: selectedLocation.lng,
-            }}
-          />
-        )}
-      </MapView>
+      <MapsViews selectedLocation={selectedLocation} marker={onHandlePicklocation} />
     </View>
   );
 };

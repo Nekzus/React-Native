@@ -52,6 +52,16 @@ const LocationScreen = ({ navigation }) => {
               </Text>
             </View>
           </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('History');
+            }}>
+            <View style={{ ...styles.button, backgroundColor: colors.card }}>
+              <Text style={{ ...styles.buttonText, color: colors.text, fontFamily: fonts.title }}>
+                Ver historial
+              </Text>
+            </View>
+          </TouchableOpacity>
         </>
       )}
     </View>
@@ -75,6 +85,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 250,
+    marginVertical: 5,
     alignItems: 'center',
     borderRadius: 50,
     shadowColor: '#000',

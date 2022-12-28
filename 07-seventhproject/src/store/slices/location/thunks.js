@@ -1,6 +1,7 @@
 import * as Location from 'expo-location';
 
-import { addressLocation, coordsLocation } from './locationsSlice';
+import { addressLocation, coordsLocation, historyLocations } from './locationsSlice';
+import { fetchAddress, insertAddress } from '../../../db';
 
 import { URL_GEOCODING } from '../../../constants/maps';
 
@@ -16,6 +17,7 @@ export const currentLocation = () => {
     });
     const { latitude, longitude } = location.coords;
     dispatch(coordsLocation({ lat: latitude, lng: longitude }));
+    await insertAddress({ lat: latitude, lng: longitude });
   };
 };
 
@@ -35,5 +37,14 @@ export const geoCodingLocation = () => {
       console.log({ error });
       throw error;
     }
+  };
+};
+
+export const loadAddress = () => {
+  return async (dispatch) => {
+    const {
+      rows: { _array },
+    } = await fetchAddress();
+    dispatch(historyLocations(_array));
   };
 };

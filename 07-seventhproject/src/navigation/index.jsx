@@ -3,13 +3,13 @@ import * as SplashScreen from 'expo-splash-screen';
 
 import { AppState, StatusBar } from 'react-native';
 import React, { useCallback, useEffect } from 'react';
+import { currentLocation, loadAddress } from '../store/slices/location';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LocationNavigator from './location';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { checkPermissionLocation } from '../store/slices/permissions';
-import { currentLocation } from '../store/slices/location';
 import { primaryTheme } from '../constants/themes/primaryTheme';
 
 SplashScreen.preventAutoHideAsync();
@@ -23,6 +23,7 @@ const fetchFonts = async () => {
 
 const AppNavigator = () => {
   const { locationStatus } = useSelector((state) => state.permissions);
+  const { coords } = useSelector((state) => state.locations);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,6 +39,10 @@ const AppNavigator = () => {
   useEffect(() => {
     dispatch(currentLocation());
   }, [locationStatus]);
+
+  useEffect(() => {
+    dispatch(loadAddress());
+  }, [coords]);
 
   useEffect(() => {
     const prepare = async () => {

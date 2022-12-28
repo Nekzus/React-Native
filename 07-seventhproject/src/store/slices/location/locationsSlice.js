@@ -5,6 +5,7 @@ export const locationsSlice = createSlice({
   initialState: {
     coords: {},
     address: null,
+    history: [],
   },
   reducers: {
     coordsLocation: (state, action) => {
@@ -13,7 +14,10 @@ export const locationsSlice = createSlice({
     addressLocation: (state, action) => {
       state.address = action.payload;
     },
+    historyLocations: (state, action) => {
+      state.history = action.payload;
+    },
   },
 });
 
-export const { coordsLocation, addressLocation } = locationsSlice.actions;
+export const { coordsLocation, addressLocation, historyLocations } = locationsSlice.actions;

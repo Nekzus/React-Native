@@ -1,4 +1,4 @@
-import { LocationScreen, MapsScreen, PermissionsScreen } from '../screens';
+import { HistoryScreen, LocationScreen, MapsScreen, PermissionsScreen } from '../screens';
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -34,6 +34,11 @@ const LocationNavigator = () => {
         options={{ title: 'Mi ubicación' }}
       />
       <Stack.Screen name="Maps" component={MapsScreen} options={{ title: 'Mapa' }} />
+      <Stack.Screen
+        name="History"
+        component={HistoryScreen}
+        options={{ title: 'Historial de ubicaciones' }}
+      />
     </Stack.Navigator>
   );
 };
