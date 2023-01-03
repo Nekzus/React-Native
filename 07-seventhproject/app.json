@@ -40,18 +40,23 @@
         "CAMERA",
         "ACCESS_FINE_LOCATION",
         "WRITE_EXTERNAL_STORAGE"
-      ]
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBsnOUouRhgZ4TN-rMzmNdpbBteb40Zoag"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "extra": {
-      "eas": {
-        "projectId": "158e805b-55ff-4f26-9862-4d5497f4cf4e"
-      }
-    },
     "runtimeVersion": {
       "policy": "sdkVersion"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4ef84eed-967e-4c78-9239-7c841c6a08e8"
+      }
     }
   }
 }
